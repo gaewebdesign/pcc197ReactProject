@@ -179,15 +179,32 @@ app.post('/api/addresource' , (req,res )=>{
  )
 
  app.post('/api/search', (req,res)=> {
-      
+   /*
+     there are 3 fields  in the search
+     keyword:           use enters some text (TEXT)
+     Primary function:  drop down (INT)
+     Distance:          use enters (INT)
+     
+     (ignore... no longer a field)
+     Incident:          drop down (INT)
+
+   */
 /*
       const ownerid = req.body.ownerid
       const categoryid = req.body.categoryid
       const incidentid = req.body.incidentid
       const distance  = req.body.distance
+      select * from resource where description like  "%des%";
+
 */
+      const keyword = req.body.keyword
+      const wrap = (d) => "\"%" + d + "%\""
       let sql = "select * from resource"
 
+      if(keyword) sql += " where description like " + wrap(keyword)
+
+      console.log( sql)
+      
       console.log( "SQL:" + sql)
       db.query( sql ,(err, result, field)=>{
           if(err){
