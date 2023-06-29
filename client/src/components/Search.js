@@ -1,11 +1,6 @@
 
 import {React} from 'react'
 
-
-
-
-
-
 import "./allstyles.css"
 
 

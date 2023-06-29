@@ -33,14 +33,14 @@ const CSearch =  (props) =>
     const owner = props.logger.name
 
     const [keyword, setKeyword] = useState( '9keyword')
-    const [primaryfunction, setPrimaryFunction] = useState( 9 )
+    const [primaryfunctionid, setPrimaryFunctionID] = useState( 9 )
     const [incident, setIncident] = useState( 9)
     const [distance, setDistance] = useState( 9 )
 
 //  GET information from each Component
     const pullKeyword = (data)=>{  setKeyword(data) }  
-    const pullPrimaryFunctionID = (data)=>{  setPrimaryFunction(data) }
-    const pullIncidentID = (data)=>{  setPrimaryFunction(data) }
+    const pullPrimaryFunctionID = (data)=>{  setPrimaryFunctionID(data) }
+   // const pullIncidentID = (data)=>{  setPrimaryFunction(data) }
     const pullDistance = (data)=>{  setDistance(data) }
     
     const [searchResults , setSearchResults] = useState ([])        
@@ -62,7 +62,6 @@ const CSearch =  (props) =>
                <thead>
                 <tr>
                 <td>resource #</td>
-                <td>--</td>
                 <td>owner id </td>
                 <td>name</td>
                 <td>owner</td>
@@ -137,7 +136,7 @@ const CSearch =  (props) =>
         Axios.post(url_search,{
           
           keyword: keyword,
-          primaryf: primaryfunction,
+          primaryf: primaryfunctionid,
           incident: incident,
           distance: distance
         } )
@@ -176,7 +175,9 @@ const CSearch =  (props) =>
        
       <CFormInput name="-Keyword" id="keyword"  func={pullKeyword}/>       
       <CPopUp name="-Primary Function" url={url_resourceid}  func = {pullPrimaryFunctionID} />
+{/*
       <CFormInput name="-Incident" func={pullIncidentID}/>
+*/}
       <CFormInput name="-Distance" func={pullDistance}/>
 
        <p/>
