@@ -18,7 +18,7 @@ function convert(epoch ){
      let year = t.getFullYear();
 
      return epoch
-//     return( t.getMonth() + ":" + month + " " + day + " " + year )
+
 }
 
 const  RANGE = (max) => { return Math.floor( Math.random() * max) + 1}
