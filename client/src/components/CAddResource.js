@@ -119,7 +119,7 @@ const CAddResource =  (props) =>
           cap : capabilities,
           dist: distance ,
           cost: costText , 
-          unit: unit ,
+          unit: costMenuItem ,
           last: last
         
         } )
