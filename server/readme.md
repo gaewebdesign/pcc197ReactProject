@@ -6,8 +6,9 @@ NOTE that package.json contains
 "devStart": "nodemon index.js",
 
 TO START SERVER ****
-npm devStart
-
+npm run devStart
+will run on port #3001
+it will cras if #3001 is already in use
  --------------------
 
 node.js
