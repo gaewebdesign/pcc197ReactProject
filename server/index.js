@@ -202,20 +202,22 @@ app.post('/api/addresource' , (req,res )=>{
       const primaryf = req.body.primaryf
 
       const wrap = (d) => "\"%" + d + "%\""
-//      const wrap2 = (d) =>  d 
-      let sql = "select * from resource"
 
-      //if(keyword) sql += " where description like " + wrap(keyword)
+//    select all... followed by and clauses
+      let sql = "select * from resource where _id>=1 "
 
-     //if(distance) sql += " where dist <= " + distance + " limit 10"
+     if(keyword) sql += " and description like " + wrap(keyword)
+     if(distance) sql += " and dist <= " + distance 
+     if(primaryf) sql += " and prime= " + primaryf 
 
-     if(primaryf) sql += " where prime= " + primaryf 
+//   sql += " limit 5"
+     console.log("*************")
+     console.log( keyword)
+     console.log( distance )
+     console.log( sql )
+     console.log("*************")
 
-      sql += " limit 5"
-      console.log( sql)
       
-
-      console.log( "SQL:" + sql)
       db.query( sql ,(err, result, field)=>{
           if(err){
               console.log("ERR: " + err)
