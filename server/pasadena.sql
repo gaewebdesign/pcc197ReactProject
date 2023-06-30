@@ -127,35 +127,35 @@ alter table `resource` AUTO_INCREMENT=1;
 insert into `resource`
 (resourceid,ownerid,name,prime,secondary,description,cap,dist,cost,unit)
 VALUES
-("1687732320322",1,"Accident March 1",1,3,"D: Coloraro Blvd","C: Police",10,1, 25),
-("1687732316322",1,"Accident March 2",2,1,"D: Allen Ave","C: Police",10,1, 25),
-("1687732026322",1,"Accident March 3",3,1,"D: Sierra ","C: Police",10,2, 25),
+("1687732320322",1001,"Accident March 1",1,3,"D: Coloraro Blvd","C: Police",10,1, 25),
+("1687732316322",1001,"Accident March 2",2,1,"D: Allen Ave","C: Police",10,1, 25),
+("1687732026322",1001,"Accident March 3",3,1,"D: Sierra ","C: Police",10,2, 25),
 
-("1687732420332",1,"Theft March 1",1,3,"D: Coloraro Blvd","C: Police",10,1, 25),
-("1687732516342",1,"Theft March 2",2,1,"D: Allen Ave","C: Police",10,1, 25),
-("1687732626352",1,"Theft March 3",3,1,"D: Sierra ","C: Police",10,2, 25),
+("1687732420332",1002,"Theft March 1",1,3,"D: Coloraro Blvd","C: Police",10,1, 25),
+("1687732516342",1002,"Theft March 2",2,1,"D: Allen Ave","C: Police",10,1, 25),
+("1687732626352",1002,"Theft March 3",3,1,"D: Sierra ","C: Police",10,2, 25),
 
-("1687731020332",1,"Lost March 1",1,3,"D: 15 College Ave","C: Police",10,1, 25),
-("1687732517342",1,"Lost March 2",2,1,"D: 16 Yosemite","C: Police",10,1, 25),
-("1687732628352",1,"Lost March 3",3,1,"D: 28 Main St ","C: Police",10,2, 25),
+("1687731020332",2002,"Lost March 1",1,3,"D: 15 College Ave","C: Police",10,1, 25),
+("1687732517342",2002,"Lost March 2",2,1,"D: 16 Yosemite","C: Police",10,1, 25),
+("1687732628352",2002,"Lost March 3",3,1,"D: 28 Main St ","C: Police",10,2, 25),
 
-("1687732449222",2,"Lost March 11",1,3,"D: 15 College Ave","C: Police",10,1, 25),
-("1687732597342",2,"Lost March 12",2,1,"D: 16 Yosemite","C: Police",10,1, 25),
-("1687732698352",2,"Lost March 13",3,1,"D: 28 Main St ","C: Police",10,2, 25),
+("1687732449222",2002,"Lost March 11",1,3,"D: 15 College Ave","C: Police",10,1, 25),
+("1687732597342",2002,"Lost March 12",2,1,"D: 16 Yosemite","C: Police",10,1, 25),
+("1687732698352",2002,"Lost March 13",3,1,"D: 28 Main St ","C: Police",10,2, 25),
 
-("1687732490132",3,"Lost March 11",1,3,"D: 15 College Ave","C: Police",10,1, 25),
-("1687732599342",3,"Lost March 12",2,1,"D: 16 Yosemite","C: Police",10,1, 25),
-("1687732608352",3,"Lost March 13",3,1,"D: 28 Main St ","C: Police",10,2, 25),
+("1687732490132",3003,"Lost March 11",1,3,"D: 15 College Ave","C: Police",10,1, 25),
+("1687732599342",3003,"Lost March 12",2,1,"D: 16 Yosemite","C: Police",10,1, 25),
+("1687732608352",3003,"Lost March 13",3,1,"D: 28 Main St ","C: Police",10,2, 25),
 
-("1687732482132",4,"Lost April 11",1,3,"D: 15 College Ave","C: Police",10,1, 25),
-("1687732598942",4,"Lost May 12",2,1,"D: 16 Yosemite","C: Police",10,1, 25),
-("1687732617352",4,"Lost June 13",3,1,"D: 28 Main St ","C: Police",10,2, 25),
-("1687732607342",4,"Lost July 13",3,1,"D: 28 Main St ","C: Police",10,2, 25),
+("1687732482132",3004,"Lost April 11",1,3,"D: 15 College Ave","C: Police",10,1, 25),
+("1687732598942",3004,"Lost May 12",2,1,"D: 16 Yosemite","C: Police",10,1, 25),
+("1687732617352",3004,"Lost June 13",3,1,"D: 28 Main St ","C: Police",10,2, 25),
+("1687732607342",3004,"Lost July 13",3,1,"D: 28 Main St ","C: Police",10,2, 25),
 
-("1687732471132",5,"Theft March 11",7,3,"D: 15 College Ave","C: Police",10,1, 25),
-("1687732508942",5,"Theft March 12",6,1,"D: 16 Yosemite","C: Police",10,1, 25),
-("1687732617372",5,"Theft March 13",5,1,"D: 28 Main St ","C: Police",10,2, 25),
-("1687732607382",5,"Theft March 13",4,1,"D: 28 Main St ","C: Police",10,2, 25)
+("1687732471132",3005,"Theft March 11",7,3,"D: 15 College Ave","C: Police",10,1, 25),
+("1687732508942",3005,"Theft March 12",6,1,"D: 16 Yosemite","C: Police",10,1, 25),
+("1687732617372",3005,"Theft March 13",5,1,"D: 28 Main St ","C: Police",10,2, 25),
+("1687732607382",3005,"Theft March 13",4,1,"D: 28 Main St ","C: Police",10,2, 25)
 
 
 ;
@@ -203,3 +203,5 @@ VALUES
 (NULL,'3',"per mile( Chariot)"),
 (NULL,'4',"per mile( Police Emergency)")
 ;
+
+alter table `costperunitid` AUTO_INCREMENT=1;
