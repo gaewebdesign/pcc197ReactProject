@@ -210,7 +210,7 @@ app.post('/api/addresource' , (req,res )=>{
      if(distance) sql += " and dist <= " + distance 
      if(primaryf) sql += " and prime= " + primaryf 
 
-//   sql += " limit 5"
+     //sql += " limit 5"
      console.log("*************")
      console.log( keyword)
      console.log( distance )

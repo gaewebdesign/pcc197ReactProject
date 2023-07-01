@@ -45,6 +45,34 @@ const CSearch =  (props) =>
     
     const [searchResults , setSearchResults] = useState ([])        
 
+    // **********************************************************
+    // Get all the users from the database
+    const [ userList , setUserList] = useState([])
+    useEffect(()=>{ fetcher() }, [ ] )
+    
+    function fetcher(){
+        Axios.get(CONSTANTS.url_getusers )
+          .then(
+               (response)=>{
+                    setUserList( response.data )
+               }
+          ).catch(
+              (response) => { alert(response)}
+          )          
+      }  
+
+      // Get the name from the ownerid
+      const OwnerIdName = (_ownerid) => {
+            try{
+                const finder = userList.find(({ ownerid }) => ownerid == _ownerid);
+                console.log("OwnerIdname " + finder.name)
+                return finder.name
+             }catch{
+            console.log("WARNING: CSearch.js try...catch to prevent a possible crash")
+           }
+    }
+
+    OwnerIdName(1003)
     // ***********************************************************
     const ReloadButton = (evt)=> {
 
@@ -61,18 +89,10 @@ const CSearch =  (props) =>
             <table class="DBTable Center">
                <thead>
                 <tr>
-                <td>resource #</td>
-                <td>owner id </td>
-                <td>name</td>
-                <td>owner</td>
-                <td>prime</td>                
-                <td>secondary</td>                
-                <td>description</td>
-                <td>cap</td>                
-                <td>dist</td>
-                <td>cost</td>
-                <td>unit</td>
-                <td>last</td>
+                <td>Resource ID</td>
+                <td>Resource Name</td>
+                <td>Owner</td>
+                <td>Cost/Unit</td>
                 </tr>
                </thead>
             { searchResults?.map(
@@ -80,18 +100,10 @@ const CSearch =  (props) =>
                 (d) =>
                 <tr>
                 <td>{d.resourceid} </td>
-                <td>{d.ownerid} </td>
                 <td>{d.name} </td>
-                <td>{d.owner} </td>
-                <td>{d.prime} </td>
-                <td>{d.secondary} </td>
-                <td>{d.description} </td>                                
-                <td>{d.cap} </td>                                
-                <td>{d.dist} </td>                                
-                <td>{d.cost} </td>                                
-                <td>{d.unit} </td>                                
-                <td>{d.last} </td>                                                
-
+                <td>{OwnerIdName(d.ownerid)} </td>
+                <td>{d.cost} /                                
+                {d.unit} </td>                                
                 </tr>  
                 ) 
                 
