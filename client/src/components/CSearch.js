@@ -118,6 +118,7 @@ const CSearch =  (props) =>
                 <td>Resource Name</td>
                 <td>Owner</td>
                 <td>Cost/Unit</td>
+                <td>Distance</td>
                 </tr>
                </thead>
             { searchResults?.map(
@@ -129,7 +130,9 @@ const CSearch =  (props) =>
                 <td>{OwnerIdName(d.ownerid)} </td>
                 <td>{d.cost} /                                
                 {toUnits(d.unit)} </td>                                
+                <td>{d.dist}</td>
                 </tr>  
+                
                 ) 
                 
             }           
