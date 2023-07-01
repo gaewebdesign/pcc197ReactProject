@@ -52,10 +52,12 @@ const TestUnitCostComponent = () => {
   
         </span>
         <p/>
-        
-        <CUnitCost name="-UnitCost" url={url_costid}  returnText={pullText}  returnMenuOption = {pullMenuItem }  />
+   {/*
+  
+  */}
+  <CUnitCost name="-UnitCost" url={url_costid}  returnCostText={pullText}  returnMenuOption = {pullMenuItem }  />
 
-        <button
+  <button
            type="button"
            class="btn btn-primary"
            onClick= {GetSelections }
