@@ -19,7 +19,10 @@ export const url_dbresource = "http://localhost:3001/api/dbresource"
 
 export const url_categoryid = "http://localhost:3001/api/categoryid"
 export const url_resourceid = "http://localhost:3001/api/resourceid"
+
+// these are the same
 export const url_costid = "http://localhost:3001/api/costid"
+export const url_units = "http://localhost:3001/api/costid"
 
 // used in TestTextBox.js to get the roles to create a new user person
 export const url_roleid = "http://localhost:3001/api/dbroleid"

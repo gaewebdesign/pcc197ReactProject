@@ -44,13 +44,38 @@ const CSearch =  (props) =>
     const pullDistance = (data)=>{  setDistance(data) }
     
     const [searchResults , setSearchResults] = useState ([])        
+    
+    // TODO: REALLY need a custom hook here!
+    // **********************************************************
+    const [unitList, setUnitList] = useState([] )
+    useEffect(()=>{ fetch_units() }, [ ] )
+    function fetch_units(){
+        Axios.get(CONSTANTS.url_units )
+          .then(
+               (response)=>{
+                    setUnitList( response.data )
+               }
+          ).catch(
+              (response) => { alert(response)}
+          )          
+      }
 
+            // Get the name from the ownerid
+      const toUnits = (_label) => {
+                try{
+                    const finder = unitList.find(({ label }) => label == _label);
+                    console.log("units" + finder.value)
+                    return finder.value
+                 }catch{
+                console.log("WARNING: CSearch.js try...catch to prevent a possible crash")
+               }
+        }
     // **********************************************************
     // Get all the users from the database
     const [ userList , setUserList] = useState([])
-    useEffect(()=>{ fetcher() }, [ ] )
+    useEffect(()=>{ fetch_users() }, [ ] )
     
-    function fetcher(){
+    function fetch_users(){
         Axios.get(CONSTANTS.url_getusers )
           .then(
                (response)=>{
@@ -103,7 +128,7 @@ const CSearch =  (props) =>
                 <td>{d.name} </td>
                 <td>{OwnerIdName(d.ownerid)} </td>
                 <td>{d.cost} /                                
-                {d.unit} </td>                                
+                {toUnits(d.unit)} </td>                                
                 </tr>  
                 ) 
                 
