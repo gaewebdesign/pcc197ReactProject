@@ -32,7 +32,9 @@ import {TestPopUpComponent} from './test/TestPopUpComponent.js'
 
 //import {TestClearValue} from './test/TestClearValue.js'
 import {TestUnitCostComponent} from './test/TestUnitCostComponent.js'
-
+import {TestDefaultSelect}  from './test/TestDefaultSelect.js'
+import {TestJWT}  from './test/TestJWT.js'
+import {TestAxiosHook}  from './test/TestAxiosHook.js'
 
 /*
 https://blog.logrocket.com/react-router-v6-guide/
@@ -180,7 +182,10 @@ const TestRoutines = () =>{
                     <li><Link to="/test2"> Test Options (e2e)  </Link></li>
                     <li><Link to="/test3"> Test Form Component (insert into onUser) </Link></li>
                     <li><Link to="/test4"> Test PopUp Component(e2e) </Link></li>
-                     <li><Link to="/test5"> Test Unit Cost Component </Link></li>
+                    <li><Link to="/test5"> Test Unit Cost Component </Link></li>
+                    <li><Link to="/test6"> Test Default Menu Select </Link></li>
+                    <li><Link to="/test7"> Test JWT </Link></li>
+                    <li><Link to="/test8"> Test Axios Hook </Link></li>
                   </div>                  
      
          )
@@ -317,6 +322,10 @@ const LoggedInStrip = (props) => {
               <Route path="/test3"  element={<TestFormInputComponent/>} />
               <Route path="/test4"  element={<TestPopUpComponent/>} />
               <Route path="/test5"  element={<TestUnitCostComponent />} />
+              <Route path="/test6"  element={<TestDefaultSelect />} />              
+              <Route path="/test7"  element={<TestJWT />} />
+              <Route path="/test8"  element={<TestAxiosHook />} />
+
               </Routes>
               </BrowserRouter>
 

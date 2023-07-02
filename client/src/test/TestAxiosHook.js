@@ -1,31 +1,85 @@
 
-import {React,useState, useEffect} from 'react'
-import {useAxiosHook} from '../hooks/useAxiosHook.js'
-//import {useAxiosHook2} from '../hooks/useAxiosHook2.js'
+import {React,useState, useEffect, useMemo} from 'react'
+import Axios from 'axios'
+
 
 import * as CONSTANTS from '../pages/Constants.js'
+// https://blog.openreplay.com/integrating-axios-with-react-hooks/
 
+const useAxiosHook = (url,payload) => {
+
+   const [ dataList , setDataList] = useState(null)
+   const [error, setError] = useState(false)
+   const [loaded , setLoaded] = useState(false)
+  
+   useEffect ( () => {
+            Axios
+            .get(url)
+            .then(
+                  (response) => {
+                        console.log("inside *********")
+                        console.log(response.data)
+                        setDataList(response.data)
+                        console.log("inside *********")
+                  }
+            )
+            .catch (
+                  (error) => {setError(error.message)}
+            )
+            .finally (
+                  () => setLoaded(true )
+            )
+   } ,  []
+
+   )
+      return [dataList,error,loaded]
+}
 
 const TestAxiosHook = () =>{
-
-const[ unitList, setUnitList] = useState()
-const[res , isError, isLoading] = useAxiosHook(
-     {
-        url: CONSTANTS.url_units,
-        method: 'get',
-        body: { },
-        headers: { } 
-      }
+   
+    
+    const [ data , isError, loaded] = useAxiosHook(
+    CONSTANTS.url_units,
+      {  }
  )
+  
+  const stringifiedData = useMemo(
+      () =>{
+          return JSON.stringify(data || {})
+       }, [data]
 
- useEffect(
-       () =>{if(res & res.data) setUnitList(res.data) },
-      [res]
+  )
+    if (loaded){
+      console.log("--- isloaded ------")
+      console.log(loaded)
+      console.log("--- data ------")
+      console.log(data)
+       console.log("--- err  -------")
+       console.log(isError)
+       console.log("---------")
+        return(
+           <div>
+            Data loaded
+            {
+                  data?.map(
 
- )
- console.log("*** useAxiosHook2 ***")
- isLoading ? console.log("loading") : console.log(unitList)
-       console.log("*** useAxiosHook2 ***")
+                    (option)=> {
+                       <b>{option.value}</b>
+
+
+                    }
+
+
+
+                  )
+            
+            
+            }
+
+            </div>
+
+        )
+    }
 
  }
 

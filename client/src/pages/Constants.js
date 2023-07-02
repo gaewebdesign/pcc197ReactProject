@@ -27,6 +27,8 @@ export const url_units = "http://localhost:3001/api/costid"
 // used in TestTextBox.js to get the roles to create a new user person
 export const url_roleid = "http://localhost:3001/api/dbroleid"
 
+export const url_loginjwt = "http://localhost:3001/api/loginjwt"
+
 // used in test routines
 // TestTextBox.js
 // insert a sample user

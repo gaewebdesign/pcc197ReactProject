@@ -201,7 +201,8 @@ VALUES
 (NULL,'1',"per mile( Uber)" ),
 (NULL,'2',"per mile( Lyft)"),
 (NULL,'3',"per mile( Chariot)"),
-(NULL,'4',"per mile( Police Emergency)")
+(NULL,'4',"per mile( Escort)"),
+(NULL,'5',"per mile( Police)")
 ;
 
 alter table `costperunitid` AUTO_INCREMENT=1;

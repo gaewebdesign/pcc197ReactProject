@@ -210,7 +210,7 @@ app.post('/api/addresource' , (req,res )=>{
      if(distance) sql += " and dist <= " + distance 
      if(primaryf) sql += " and prime= " + primaryf 
 
-     //sql += " limit 5"
+     sql += " limit 5"
      console.log("*************")
      console.log( keyword)
      console.log( distance )
@@ -218,7 +218,7 @@ app.post('/api/addresource' , (req,res )=>{
      console.log("*************")
 
       
-      db.query( sql ,(err, result, field)=>{
+      db.query( sql ,(err, result)=>{
           if(err){
               console.log("ERR: " + err)
               res.status(400)
@@ -363,6 +363,42 @@ app.get("/api/costid" , (req,res) => {
 
 
 })
+
+app.post("/api/loginjwt",(req,res) => {
+
+  let user = req.body.user
+  let password = req.body.password
+  
+  let sql = "select * from user "
+   sql += "where user =" + quotes(user)
+   sql += " and password= " + quotes(password)
+    
+  db.query(sql, (err,result) => {
+     
+     if(err){
+      res.status(500).json("err")
+      
+     }else{
+         console.log("LEN:"+ result.length)
+         if( result.length >0){
+          console.log("LOGGED IN")
+          res.status(200).json(result)
+        }else{
+          console.log("NOT LOGGED IN")
+          res.status(400).json(result)
+
+        }
+
+     }
+
+    
+  })
+
+
+})
+
+ 
+
 
 
 app.get('/', (req,res) => {

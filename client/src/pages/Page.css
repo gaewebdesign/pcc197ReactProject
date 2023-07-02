@@ -14,3 +14,9 @@ th, td {
    margin-left: auto;
    margin-right: auto;
   }
+
+  .DBTableLight {
+    background-color: rgb(237, 241, 245);
+    margin-left: auto;
+    margin-right: auto;
+   }
