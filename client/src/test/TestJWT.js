@@ -22,10 +22,28 @@ const TestJWT = ( )=>  {
           } )
           .then(
              (response) => { 
-                 alert("Logged in" + response.status)   
-                 
-                 localStorage.setItem("user", user);
-                 localStorage.setItem("password", password)              
+                 alert("Logged in: " + response.status)   
+                 // can only be one row returned due to uniquness of owner
+                 const info = response.data[0]
+                 console.log( info )
+                 localStorage.setItem("loggedin", true)
+
+                 // this is exactly the database user.. each column 
+                 localStorage.setItem("ownerid", info.ownerid)
+                 localStorage.setItem("roleid", info.roleid)
+                 localStorage.setItem("user", info.user)
+                 localStorage.setItem("name", info.name)
+                 localStorage.setItem("password", info.password)              
+                 localStorage.setItem("emai", info.email)              
+
+                 localStorage.setItem("phone", info.phone)              
+                 localStorage.setItem("address", info.address)              
+                 localStorage.setItem("city", info.city)              
+                 localStorage.setItem("state", info.state)             
+                 localStorage.setItem("zip", info.zip)               
+
+
+
              }
           ).catch(
              (error) => {  alert("Incorrect user/password " + error)   }
