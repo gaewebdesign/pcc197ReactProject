@@ -382,6 +382,8 @@ app.post("/api/loginjwt",(req,res) => {
          console.log("LEN:"+ result.length)
          if( result.length >0){
           console.log("LOGGED IN")
+          console.log( result)
+          console.log("LOGGED IN")
           res.status(200).json(result)
         }else{
           console.log("NOT LOGGED IN")
