@@ -17,6 +17,9 @@ import Axios  from 'axios';
  
 import * as CONSTANTS from '../pages/Constants.js'
 
+import { useAxiosHook } from '../hooks/useAxiosHook.js';
+import { useAxiosHook2 } from '../hooks/useAxiosHook2.js';
+
 const url_search = CONSTANTS.url_search
 const url_resourceid = CONSTANTS.url_resourceid
 
@@ -45,8 +48,7 @@ const CSearch =  (props) =>
     
     const [searchResults , setSearchResults] = useState ([])        
     
-    // TODO: REALLY need a custom hook here!
-    // **********************************************************
+
     const [unitList, setUnitList] = useState([] )
     useEffect(()=>{ fetch_units() }, [ ] )
     function fetch_units(){
@@ -60,7 +62,7 @@ const CSearch =  (props) =>
           )          
       }
 
-            // Get the name from the ownerid
+      // Get the unit name from the costid
       const toUnits = (_label) => {
                 try{
                     const finder = unitList.find(({ label }) => label == _label);

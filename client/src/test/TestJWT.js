@@ -21,7 +21,12 @@ const TestJWT = ( )=>  {
             password: password
           } )
           .then(
-             (response) => {  alert("Logged in" + response.status)     }
+             (response) => { 
+                 alert("Logged in" + response.status)   
+                 
+                 localStorage.setItem("user", user);
+                 localStorage.setItem("password", password)              
+             }
           ).catch(
              (error) => {  alert("Incorrect user/password " + error)   }
        
