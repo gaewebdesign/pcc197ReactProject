@@ -59,7 +59,7 @@ const TestJWT = ( )=>  {
                                 </div>
                        <div class="col-sm-4">
                                  <input
-                                  type="password"
+                                  type="text"
                                   id="passwordr"
                                   onChange= {onPassword}
                       ></input>
