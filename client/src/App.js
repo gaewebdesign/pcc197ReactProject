@@ -102,7 +102,7 @@ const CreateIncident = (props) => {
 
 }
 
-const TestPage = (props) => {
+const ReadMePage = (props) => {
 
 /*
 
@@ -302,7 +302,7 @@ const LoggedInStrip = (props) => {
               <BrowserRouter>
               <NavigationPage/>
               <Routes>
-              <Route path="/test" element={<TestPage logger={logger}/>} />
+              <Route path="/test" element={<ReadMePage logger={logger}/>} />
 
               <Route path="/caddresource"  element={<CAddResource logger={logger}/>} />
               <Route path="/caddemergency"  element={<CAddEmergencyIncident logger={logger}/>} />
