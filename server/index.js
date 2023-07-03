@@ -34,6 +34,106 @@ app.use( bodyParser.urlencoded({ extended: true }))
 quotes  = (_v) => { return '"' + _v + '"'}
 asValue = (_v) => { return  _v }
 
+app.post("/api/logger", (req,res)=>{
+     const ownerid= req.body.ownerid
+     const epoch= req.body.epoch
+     let sql = "insert into logger(ownerid,epoch) values("
+     sql += quotes( ownerid) + ","
+     sql += quotes( epoch) + ")"
+
+     console.log( sql)
+     // insert ownerid of current logger
+     db.query( sql ,[ownerid,epoch], (err,result) =>
+     {
+          if(err){
+           console.log("ERR:" + err)
+           res.status(400)
+           res.send("SQL failed  ")
+ 
+         }else{
+           res.status(200)
+           res.send("SUCCESS")
+           console.log("SUCCESS: sql inserted: ") 
+           console.log( result )
+ 
+          }
+    })
+
+})
+
+// return the current user ownerid
+// older api for test to the current user : ownerid
+app.get('/api/current', (req,res) =>{
+  //const sql = "select name,displayname,email,password from user order by _id"
+  const sql = "select ownerid from logger order by _id desc limit 1"
+      console.log( sql )
+      db.query(sql, (err,result) =>{
+         console.log( result )
+         res.send( result )
+
+      })
+
+ })
+
+ 
+ 
+app.get("/api/currentinfo" ,(req,res)=>{
+      let ownerid=9999     // should be reset
+      let sql = "select ownerid from logger order by _id desc limit 1"
+       console.log( sql)
+    // Execute the mysql command 
+     db.query( sql , (err,result) =>
+    {
+         if(err){          
+          console.log("ERR:" + err)
+          res.status(400)
+          res.send("SQL failed ")
+        }else{
+          console.log("SUCCESS: current ownerid: ") 
+          console.log( result)
+          console.log( result[0].ownerid)
+          ownerid = result[0].ownerid
+             let sql2 = "select * from user where ownerid= " + ownerid
+             console.log( sql2)
+             db.query( sql2, (err,result)=>{
+                if(err){
+                      res.status(400)
+                      res.send("err")
+                }else{
+                     res.status(200)
+                     res.send( result)
+
+                }
+
+
+             })
+             
+
+         }
+     })
+ 
+/*
+sql = "select * from user where ownerid= " + ownerid
+     console.log( sql )
+
+     db.query( sql , (err,result) =>
+     {
+          if(err){
+           console.log("ERR:" + err)
+           res.status(400)
+           res.send("SQL failed ")
+ 
+         }else{
+           res.status(200)
+           console.log("SUCCESS: sql=" + sql ) 
+           console.log( result )
+           res.send(result)
+          }
+      })
+*/
+})
+
+
 app.post("/api/insertuser", (req,res) => {
 
     const ownerid = req.body.ownerid

@@ -3,6 +3,7 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `pasadena` /*!40100 DEFAULT CHARACTER S
 
 USE `pasadena`;
 
+DROP TABLE IF EXISTS `logger`;
 DROP TABLE IF EXISTS `user`;
 DROP TABLE IF EXISTS `role`;
 
@@ -10,6 +11,14 @@ DROP TABLE IF EXISTS `resourceid`;
 DROP TABLE IF EXISTS `categoryid` ;
 DROP TABLE IF EXISTS `costperunitid`;
 
+CREATE TABLE `logger` (
+  `_id` int NOT NULL AUTO_INCREMENT,
+  `ownerid` int NOT NULL,
+  `epoch` varchar(50) NOT NULL,
+  PRIMARY KEY (`_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+alter table `logger` AUTO_INCREMENT=1;
 
 CREATE TABLE `user` (
   `_id` int NOT NULL AUTO_INCREMENT,

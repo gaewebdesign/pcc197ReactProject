@@ -48,7 +48,7 @@ const LoginPageJWT = (props )=>  {
            console.log("*** info from server")
 
            // Heading to App.js (ImLoggedIn  call back)
-           // where the info is stored in local storage
+           // where the user (ownerid,epoch) saved in db
            props.func(info)
 
        }
