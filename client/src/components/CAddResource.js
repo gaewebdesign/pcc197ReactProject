@@ -89,6 +89,9 @@ const CAddResource =  (props) =>
 
            window.location.reload()
 
+           
+
+
      }
 
     const SubmitButton=(evt) => {

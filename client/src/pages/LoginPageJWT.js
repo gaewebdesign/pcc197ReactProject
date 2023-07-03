@@ -38,29 +38,17 @@ const LoginPageJWT = (props )=>  {
     } )
     .then(
        (response) => { 
-           alert("Logged in: " + response.status)   
-           // only  one row returned due to table constraints
+           // Handle Authentication on the server side
+           // the server does a select based on user/password
+           // and either returns 200 and the data or 500/error
+           // only one row returned due to table constraints
            const info = response.data[0]
            console.log("*** info from server")
            console.log( info )
            console.log("*** info from server")
-/*
-           localStorage.setItem("loggedin", true)
 
-         // this is exactly the database user.. each column 
-           localStorage.setItem("ownerid", info.ownerid)
-           localStorage.setItem("roleid", info.roleid)
-           localStorage.setItem("user", info.user)
-           localStorage.setItem("name", info.name)
-           localStorage.setItem("password", info.password)              
-           localStorage.setItem("emai", info.email)              
-
-           localStorage.setItem("phone", info.phone)              
-           localStorage.setItem("address", info.address)              
-           localStorage.setItem("city", info.city)              
-           localStorage.setItem("state", info.state)             
-           localStorage.setItem("zip", info.zip)   
-           */
+           // Heading to App.js (ImLoggedIn  call back)
+           // where the info is stored in local storage
            props.func(info)
 
        }
