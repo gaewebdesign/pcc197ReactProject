@@ -22,6 +22,9 @@ import {LoginPage} from './pages/LoginPage.js'
 import {LoginPageJWT} from './pages/LoginPageJWT.js'
 import {ResourcePage} from './pages/ResourcePage.js'
 import {UserPage} from './pages/UserPage.js'
+
+import {CurrentInfoPage} from './pages/CurrentInfoPage.js'
+
 import {LoggerPage} from './pages/LoggerPage.js'
 
 import {IncidentPage} from './pages/IncidentPage.js'
@@ -204,6 +207,9 @@ const Database = () => {
               <li><Link to="/dbresource"> Resources </Link></li>
               <li><Link to="/dbuser"> User </Link></li>
               <li><Link to="/dblogger"> Logger </Link></li>
+
+              <li><Link to="/currentinfo"> Current Info </Link></li>
+
               <li><Link to="/dbincident"> Incident </Link></li>  
               <li><Link to="/dbcategoryid"> CategoryID </Link></li>
               <li><Link to="/dbresourceid"> ResourceID </Link></li>
@@ -358,6 +364,8 @@ const LoggedInStrip = (props) => {
                
               <Route path="/dbresource"  element={<ResourcePage/>} />
               <Route path="/dbuser"  element={<UserPage/>} />   
+
+              <Route path="/currentinfo"  element={<CurrentInfoPage/>} />   
               
               <Route path="/dblogger"  element={<LoggerPage/>} />   
 
