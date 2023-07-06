@@ -1,5 +1,8 @@
 
+/*
+import {epoch,epochtodate,random} from '../library/library.js'
 
+*/
 
 function epoch( ){
     return new Date().getTime()

@@ -15,6 +15,7 @@ import {CUnitCost} from './CUnitCost.js'
 import Axios  from 'axios';
  
 import * as CONSTANTS from '../pages/Constants.js'
+import {epoch,epochtodate,random} from '../library/library.js'
 
 const url_resourceid = CONSTANTS.url_resourceid
 const url_categoryid = CONSTANTS.url_categoryid
@@ -28,10 +29,7 @@ const Distance = [
 const CAddEmergencyIncident =  (props) =>
 {
 
-    // TODO owner is the ID of the person logged in
- 
-    let myID = "R-" +  Math.floor(+new Date() / 1000)
-    myID = Math.floor(new Date()/1000)
+    let myID = epoch()
 
     const ownerid = props.logger.ownerid // 999 // props.logger.name // "89999"
     // used just for display purpose
