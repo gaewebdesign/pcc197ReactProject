@@ -457,7 +457,7 @@ app.get("/api/getlastcategoryindex" , (req,res) => {
 // this follows above get 
 // app.post("/api/lastcategoryincrement",(req,res) => {
 //  "http://localhost:3001/api/lastcategoryincrement"
-  app.post("/api/increment",(req,res) => {  
+  app.post("/api/lastcategoryincrement",(req,res) => {  
 
   let index = req.body.index
   let sql=""
