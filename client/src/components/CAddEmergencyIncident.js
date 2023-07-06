@@ -56,7 +56,7 @@ const CAddEmergencyIncident =  (props) =>
     const url_addincident= CONSTANTS.url_addincident
        
     // Load the last category index table (C1,C2,C3,C4)
-    useEffect( ()=>{ fetcher() } ,[ ])
+    useEffect( ()=>{ fetcher() } ,[lastcategoryindex ])
     function fetcher(){
 
        Axios.get(CONSTANTS.url_lastcategoryindex)
@@ -120,6 +120,9 @@ const CAddEmergencyIncident =  (props) =>
         }
 
         console.log( url_addincident)
+        console.log(" ** incidentid " )
+        console.log( incidentid)
+        console.log("    incidentid **" )
         Axios.post(url_addincident,{
           ownerid: ownerid,
           categoryid: categoryid,
