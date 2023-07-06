@@ -3,9 +3,8 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `pasadena` /*!40100 DEFAULT CHARACTER S
 
 USE `pasadena`;
 
-DROP TABLE IF EXISTS `lastcat`;
 
-DROP TABLE IF EXISTS `lastcat`;
+DROP TABLE IF EXISTS `lastcategoryindex`;
 
 DROP TABLE IF EXISTS `logger`;
 DROP TABLE IF EXISTS `user`;
@@ -17,7 +16,7 @@ DROP TABLE IF EXISTS `costperunitid`;
 
 
 
-CREATE TABLE `lastcat` (
+CREATE TABLE `lastcategoryindex` (
   `_id` int NOT NULL AUTO_INCREMENT,
   `cat1` int DEFAULT NULL,
   `cat2` int DEFAULT NULL,
@@ -27,17 +26,17 @@ CREATE TABLE `lastcat` (
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 
-alter table `lastcat` AUTO_INCREMENT=1;
+alter table `lastcategoryindex` AUTO_INCREMENT=1;
 
-INSERT INTO `lastcat` 
+INSERT INTO `lastcategoryindex` 
 VALUES
 (NULL,0,0,0,0)
 ;
 
-update lastcat set cat1 = cat1+1;
-update lastcat set cat2 = cat2+1;
-update lastcat set cat3 = cat3+1;
-update lastcat set cat4 = cat4+1;
+update lastcategoryindex set cat1 = cat1+1;
+update lastcategoryindex set cat2 = cat2+1;
+update lastcategoryindex set cat3 = cat3+1;
+update lastcategoryindex set cat4 = cat4+1;
 
 
 

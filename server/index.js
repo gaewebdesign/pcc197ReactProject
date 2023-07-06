@@ -456,6 +456,21 @@ app.post('/api/addresource' , (req,res )=>{
 
 })
 
+// the last values of C1, C2 , C3 ,C4
+// should be only one row 
+app.get("/api/getlastcategoryindex" , (req,res) => {
+
+  const sql = "select * from lastcategoryindex limit 1"
+  db.query(sql, (err,result) => {
+     console.log(" getting lastcategory index")
+     console.log( result )
+
+     res.send( result )  
+ })
+
+
+})
+
 app.get("/api/resourceid" , (req,res) => {
 
   const sql = "select label, value from resourceid  order by label"

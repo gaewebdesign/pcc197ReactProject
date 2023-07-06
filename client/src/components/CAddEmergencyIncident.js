@@ -42,7 +42,9 @@ const CAddEmergencyIncident =  (props) =>
     const [categoryid, setCategoryID] = useState( 99 )
     const [description, setDescription] = useState(" not done")
 
-//  GET information from each Component
+    const [lastcategoryindex, setLastCategoryIndex] = useState([])
+
+    //  GET information from each Component
     const pullDate = (data)=>{  setDate(data) }  
     const pullDescription = (data)=>{  setDescription(data) }
     const pullSelectedCategory = (data) => { setCategoryID(data) }
@@ -52,7 +54,29 @@ const CAddEmergencyIncident =  (props) =>
     
 //  post to database
     const url_addincident= CONSTANTS.url_addincident
-        
+       
+    // Load the last category index table (C1,C2,C3,C4)
+    useEffect( ()=>{ fetcher() } ,[ ])
+    function fetcher(){
+
+       Axios.get(CONSTANTS.url_lastcategoryindex)
+         .then(
+              (response)=>{
+                   setLastCategoryIndex( response.data )
+                   console.log(" *** lastcategoryindex *** ")
+//                 array of 1 row
+                   console.log(lastcategoryindex[0])
+                   console.log(" *** lastcategoryindex *** ")
+                   
+                }
+         ).catch(
+
+             (response) => { alert(response)}
+         )          
+ 
+     } 
+
+
     // ***********************************************************
     const ReloadButton = (evt)=> {
 
@@ -73,7 +97,18 @@ const CAddEmergencyIncident =  (props) =>
             and incremental #
         */
 
-        incidentid = "C" + categoryid +"-" + random(1,42)
+         incidentid = "C" + categoryid +"-" 
+         if(categoryid == 1) {
+            incidentid += lastcategoryindex[0].cat1            
+        }else if( categoryid == 2){
+            incidentid += lastcategoryindex[0].cat2            
+        }else if( categoryid == 3){
+            incidentid += lastcategoryindex[0].cat3            
+        }else if( categoryid == 4){
+            incidentid += lastcategoryindex[0].cat4            
+        }else{
+            incidentid += "?"
+        }
 
         console.log( url_addincident)
         Axios.post(url_addincident,{
