@@ -4,6 +4,7 @@ import './App.css';
 import * as CONSTANTS from './pages/Constants.js'
 
 import React from 'react'
+import Axios from 'axios'
 
 import {BrowserRouter , Route, Routes} from 'react-router-dom'
 import {Link} from 'react-router-dom'
@@ -18,8 +19,11 @@ import {CResourceReport} from './components/CResourceReport.js'
 
 // show Database contents
 import {LoginPage} from './pages/LoginPage.js'
+import {LoginPageJWT} from './pages/LoginPageJWT.js'
 import {ResourcePage} from './pages/ResourcePage.js'
 import {UserPage} from './pages/UserPage.js'
+import {LoggerPage} from './pages/LoggerPage.js'
+
 import {IncidentPage} from './pages/IncidentPage.js'
 
 import {ResourceID,CategoryID, CostID} from './pages/Menu.js'
@@ -40,9 +44,29 @@ import {TestAxiosHook}  from './test/TestAxiosHook.js'
 https://blog.logrocket.com/react-router-v6-guide/
        npm install react-router-dom
 */
+class Getinfo extends React.Component {
+    constructor(){
+         super()
 
+    }
+    componentDidMount(){
+           console.log("componentDidMount")
+            alert("GetInfo")
+    }
+
+    render(){
+      return(
+        <div>DDD</div>
+      )
+
+    }
+
+}
+
+const n = new Getinfo()
 
 function App() {
+
   
   const [ user, SetUser]  = useState("user")
   const [ name, SetName]  = useState("Elon Muak")
@@ -59,20 +83,41 @@ function App() {
   const ImLoggedIn = (info) => {
    // Set who's logged in
         alert("logged in:" + info.roleid + " " + info.user + " " + info.ownerid + " " + info.name)
-        SetLogger( info )
-/*        
-        SetRoleID( info.roleid )
-        SetUser( info.user )
-        SetName( info.name )
-        SetOwner( info.className)
-        SetEmail( info.email )
-        SetPhone( info.phone )
-*/
+          SetLogger( info )
 
-        setLoggedIn (true )
-        
-        localStorage.setItem("loggedin", true )
- 
+         // local storage settings
+          setLoggedIn (true )
+          localStorage.setItem("loggedin", true)
+
+          localStorage.setItem("info", JSON.stringify(info))
+          console.log( JSON.parse(localStorage.getItem("info")))
+
+          // Save the current person logged in
+          Axios.post(CONSTANTS.url_logger,{
+          ownerid: info.ownerid,
+          epoch: new Date().getTime()
+
+        })
+        .then(
+           (response) => {  console.log(response)   }
+        ).catch(
+           (error) => {  alert("ERROR: " + error)   }
+     
+        )
+        // *******************
+         Axios.get(CONSTANTS.url_currentinfo , {})
+           .then( response  => { 
+            console.log("CURRENT USER " + CONSTANTS.url_current)
+//            console.log(response)
+            console.log("CURRENT USER " + CONSTANTS.url_current)
+
+                  
+          })
+           .catch(
+            (error => { alert("ERR: " + error)})
+           )
+           
+        // ******************** /
    }
 
 
@@ -158,6 +203,7 @@ const Database = () => {
               <div>
               <li><Link to="/dbresource"> Resources </Link></li>
               <li><Link to="/dbuser"> User </Link></li>
+              <li><Link to="/dblogger"> Logger </Link></li>
               <li><Link to="/dbincident"> Incident </Link></li>  
               <li><Link to="/dbcategoryid"> CategoryID </Link></li>
               <li><Link to="/dbresourceid"> ResourceID </Link></li>
@@ -311,7 +357,10 @@ const LoggedInStrip = (props) => {
                
                
               <Route path="/dbresource"  element={<ResourcePage/>} />
-              <Route path="/dbuser"  element={<UserPage/>} />              
+              <Route path="/dbuser"  element={<UserPage/>} />   
+              
+              <Route path="/dblogger"  element={<LoggerPage/>} />   
+
               <Route path="/dbincident"  element={<IncidentPage/>} />                            
               <Route path="/dbcategoryid"  element={<CategoryID/>} />                            
               <Route path="/dbresourceid"  element={<ResourceID/>} />                            
@@ -334,9 +383,8 @@ const LoggedInStrip = (props) => {
           )}else{
              return(
                 <div>
-                 <LoginPage func = {ImLoggedIn}/>
+                 <LoginPageJWT func = {ImLoggedIn}/>
                 </div>
-
              )
           }
 

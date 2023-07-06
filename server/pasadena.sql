@@ -20,6 +20,11 @@ CREATE TABLE `logger` (
 
 alter table `logger` AUTO_INCREMENT=1;
 
+INSERT INTO `logger` 
+VALUES
+(NULL,0,"1688460876815")
+;
+
 CREATE TABLE `user` (
   `_id` int NOT NULL AUTO_INCREMENT,
   `ownerid` int NOT NULL UNIQUE,
@@ -50,9 +55,9 @@ alter table `user` AUTO_INCREMENT=1;
 
 INSERT INTO `user` 
 VALUES
-(NULL,1001,1,'tim','Tim The XMan','timmy','xman@go.pasadena.edu',  "818-431-2312", NULL,NULL,NULL,NULL),
-(NULL,1002,1,'teresa','Teresa Lee','teresa','xman@go.pasadena.edu',  "818-431-2312", NULL,NULL,NULL,NULL),
-(NULL,1003,1,'alison@gmail.com','Alison Kusaba','alison','alilove@gmail.com',  "818-431-2312", NULL,NULL,NULL,NULL)
+(NULL,1001,1,'tim','The XMan Tim','timmy','xman@go.pasadena.edu',  "818-431-2312", NULL,NULL,NULL,NULL),
+(NULL,1002,1,'teresa','Teresa Lee','teresa','teresa@go.pasadena.edu',  "818-431-2312", NULL,NULL,NULL,NULL),
+(NULL,1003,1,'alison','Alison Komo','alison','alilove@gmail.com',  "818-431-2312", NULL,NULL,NULL,NULL)
 ;
 
 
@@ -65,7 +70,7 @@ VALUES
 
 INSERT INTO `user`
 VALUES
-(NULL,3003,3,'chemistry','Dr Latimer','pass_911','xman@go.pasadena.edu', NULL,NULL,NULL,NULL,NULL),
+(NULL,3003,3,'chemistry','Dr Latimer','latimer','latimer@go.pasadena.edu', NULL,NULL,NULL,NULL,NULL),
 (NULL,3004,3,'physics','Dr Richard Feyman','feyn','feyman@hpd.caltech.edu', NULL,NULL,NULL,NULL,NULL),
 (NULL,3005,3,'library','Stella L. Lee, PhD','stella','stella.lee.library.com', NULL,NULL,NULL,NULL,NULL)
 ;
