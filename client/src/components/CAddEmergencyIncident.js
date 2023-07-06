@@ -120,11 +120,28 @@ const CAddEmergencyIncident =  (props) =>
 
         } )
         .then(
-           (response) => {  alert("Data entered: " + response.status)     }
+            (response) => {  alert("Data entered: " + response.status)     }
         ).catch(
-           (error) => {  alert("Data error, check data field: " + error)   }
+            (error) => {  alert("Data error, check data field: " + error)   }
      
         )
+
+        // Increment the last value for index C1,C2,C3,C4
+        let _last = "http://localhost:3001/api/last"
+        Axios.post( CONSTANTS.url_lastcategoryindex,{
+            index: categoryid
+        })
+        .then(
+            console.log("good")
+        ).catch(
+            (error) => {  alert("Data " + CONSTANTS.url_lastcategoryindex + error)   }
+
+        )
+             
+
+
+
+
      
     }
 

@@ -117,26 +117,8 @@ app.get("/api/currentinfo" ,(req,res)=>{
 
          }
      })
- 
-/*
-sql = "select * from user where ownerid= " + ownerid
-     console.log( sql )
 
-     db.query( sql , (err,result) =>
-     {
-          if(err){
-           console.log("ERR:" + err)
-           res.status(400)
-           res.send("SQL failed ")
- 
-         }else{
-           res.status(200)
-           console.log("SUCCESS: sql=" + sql ) 
-           console.log( result )
-           res.send(result)
-          }
-      })
-*/
+
 })
 
 
@@ -283,6 +265,7 @@ app.post('/api/addresource' , (req,res )=>{
  }
 
  )
+
 
  app.post('/api/search', (req,res)=> {
    /*
@@ -468,6 +451,34 @@ app.get("/api/getlastcategoryindex" , (req,res) => {
      res.send( result )  
  })
 
+
+})
+
+// this follows above get 
+// app.post("/api/lastcategoryincrement",(req,res) => {
+//  "http://localhost:3001/api/lastcategoryincrement"
+  app.post("/api/increment",(req,res) => {  
+
+  let index = req.body.index
+  let sql=""
+  if(index == 1 )      sql = "update lastcategoryindex set cat1 = cat1+1"
+  else if( index == 2) sql = "update lastcategoryindex set cat2 = cat2+1"
+  else if( index == 3) sql = "update lastcategoryindex set cat3 = cat3+1"
+  else if( index == 4) sql = "update lastcategoryindex set cat4 = cat4+1"
+
+  console.log(sql)
+
+
+  db.query(sql, (err,result) => {
+     if(err){
+      res.status(500)
+       res.send("err")
+    }else{
+        res.status(200)
+        res.send(result)
+
+    }
+  })
 
 })
 
