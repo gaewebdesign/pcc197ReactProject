@@ -40,7 +40,7 @@ const LoggerPage = () => {
                 <tr>
                 <td>ownerid</td>
                 <td>epoch</td>
-                <td>date</td>
+                <td>[ date ] </td>
                 </tr>
                </thead>
             { dbTable?.map(
