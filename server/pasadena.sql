@@ -3,6 +3,10 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `pasadena` /*!40100 DEFAULT CHARACTER S
 
 USE `pasadena`;
 
+DROP TABLE IF EXISTS `lastcat`;
+
+DROP TABLE IF EXISTS `lastcat`;
+
 DROP TABLE IF EXISTS `logger`;
 DROP TABLE IF EXISTS `user`;
 DROP TABLE IF EXISTS `role`;
@@ -10,6 +14,32 @@ DROP TABLE IF EXISTS `role`;
 DROP TABLE IF EXISTS `resourceid`;
 DROP TABLE IF EXISTS `categoryid` ;
 DROP TABLE IF EXISTS `costperunitid`;
+
+
+
+CREATE TABLE `lastcat` (
+  `_id` int NOT NULL AUTO_INCREMENT,
+  `cat1` int DEFAULT NULL,
+  `cat2` int DEFAULT NULL,
+  `cat3` int DEFAULT NULL,    
+  `cat4` int DEFAULT NULL,
+  PRIMARY KEY (`_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+
+alter table `lastcat` AUTO_INCREMENT=1;
+
+INSERT INTO `lastcat` 
+VALUES
+(NULL,0,0,0,0)
+;
+
+update lastcat set cat1 = cat1+1;
+update lastcat set cat2 = cat2+1;
+update lastcat set cat3 = cat3+1;
+update lastcat set cat4 = cat4+1;
+
+
 
 CREATE TABLE `logger` (
   `_id` int NOT NULL AUTO_INCREMENT,
