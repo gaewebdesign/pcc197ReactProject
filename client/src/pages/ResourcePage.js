@@ -3,29 +3,13 @@ import Axios from 'axios'
 import {useState, useEffect} from 'react'
 
 import './Page.css'
+import {epoch,epochtodate,random} from '../library/library.js'
 import * as CONSTANTS from '../pages/Constants.js'
 
 const url_resourceid = CONSTANTS.url_resourceid
 const url_categoryid = CONSTANTS.url_categoryid
 const url_costid = CONSTANTS.url_costid
 
-// given epoch, convert to a stringed date month/year
-const Convert =  (e) => {
-    let epoch = 0 + e
-
-    let t = new Date(0)
-    t.setMilliseconds(epoch)
-
-
-    let month = t.toLocaleString('default', { month: 'long' });
-    let day = t.getUTCDate();
-    let year = t.getUTCFullYear();
-
-    console.log( month + " " + day + " " + year )
-
-    return month + " " + day + " " + year 
-
-} 
 const ResourcePage = () => {
 
     const[ resource , setResourcePage] = useState([])
@@ -96,7 +80,7 @@ const ResourcePage = () => {
                 (d) =>
                 <tr>
                 <td>{d.resourceid} </td>
-                <td>{Convert(d.resourceid)} </td>
+                <td>{epochtodate(d.resourceid)} </td>
                 <td>{d.ownerid} </td>
                 <td>{d.name} </td>
                 <td>---</td>

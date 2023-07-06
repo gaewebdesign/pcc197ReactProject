@@ -5,7 +5,7 @@ function epoch( ){
     return new Date().getTime()
 }
 
-function epochdate(_epoch){
+function epochtodate(_epoch){
     let epoch = 0 + _epoch
 
     let t = new Date(0)
@@ -26,4 +26,4 @@ function random(min, max) {
 }
 
 
-export { epoch, epochdate, random}
+export { epoch, epochtodate, random}
