@@ -88,7 +88,13 @@ app.get("/api/currentinfo" ,(req,res)=>{
           console.log("ERR:" + err)
           res.status(400)
           res.send("SQL failed ")
-        }else{
+        }else if( result.length==0){
+           // Prevent a server crash if logger table empty
+           res.status(400)
+           console.log("logger table is empty")
+           res.send("logger table empty")
+        }
+        else{
           console.log("SUCCESS: current ownerid: ") 
           console.log( result)
           console.log( result[0].ownerid)
