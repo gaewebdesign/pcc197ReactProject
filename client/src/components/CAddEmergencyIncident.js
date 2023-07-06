@@ -65,7 +65,12 @@ const CAddEmergencyIncident =  (props) =>
                    setLastCategoryIndex( response.data )
                    console.log(" *** lastcategoryindex *** ")
 //                 array of 1 row
-                   console.log(lastcategoryindex[0])
+
+                    console.log(" *** response.data  *** ")
+                    console.log( response.data)
+                    console.log(" *** response.data  *** ")
+
+                    console.log(lastcategoryindex[0])
                    console.log(" *** lastcategoryindex *** ")
                    
                 }
@@ -97,6 +102,10 @@ const CAddEmergencyIncident =  (props) =>
             and incremental #
         */
 
+         console.log( "lastcategoryindex ")            
+         console.log( lastcategoryindex)
+         console.log( "lastcategoryindex ")            
+
          incidentid = "C" + categoryid +"-" 
          if(categoryid == 1) {
             incidentid += lastcategoryindex[0].cat1            
@@ -127,8 +136,7 @@ const CAddEmergencyIncident =  (props) =>
         )
 
         // Increment the last value for index C1,C2,C3,C4
-        let _last = "http://localhost:3001/api/last"
-        Axios.post( CONSTANTS.url_lastcategoryindex,{
+        Axios.post( CONSTANTS.url_lastcategoryincrement,{
             index: categoryid
         })
         .then(
