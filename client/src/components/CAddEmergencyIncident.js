@@ -33,10 +33,11 @@ const CAddEmergencyIncident =  (props) =>
     let myID = "R-" +  Math.floor(+new Date() / 1000)
     myID = Math.floor(new Date()/1000)
 
-    const ownerid = 999 // props.logger.name // "89999"
+    const ownerid = props.logger.ownerid // 999 // props.logger.name // "89999"
     // used just for display purpose
     // the owner can be identified by ownerid or name
     const owner = props.logger.name
+
 
     const [name, setResourceName] = useState('default')
     const [date, setDate] = useState( '1/1/1900')
