@@ -67,14 +67,19 @@ const CAddEmergencyIncident =  (props) =>
         //  NOTE: the keys are the same as the database 
         // the server side has to match (req.body.owner)
         // do the resource id here, so it will be unique
-        let actual =   Math.floor(+new Date() / 1000)
-        actual =  new Date().getTime()
+        let incidentid =  "C#-"+  random(1,23)
+        /*  TODO:  produce incidentid
+            C1-#,C2-#,C3-#,C4-#
+            and incremental #
+        */
+
+        incidentid = "C" + categoryid +"-" + random(1,42)
 
         console.log( url_addincident)
         Axios.post(url_addincident,{
           ownerid: ownerid,
           categoryid: categoryid,
-          incidentid: actual,
+          incidentid: incidentid,
           idate: date,
           description: description,
 
