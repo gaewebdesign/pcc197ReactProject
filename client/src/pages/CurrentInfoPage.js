@@ -51,6 +51,7 @@ const CurrentInfoPage = () => {
                 <td>user</td>
                 <td>name</td>
                 <td>password</td>
+                <td>email</td>
                 <td>phone</td>
                 <td>address</td>
                 <td>city</td>
@@ -67,6 +68,7 @@ const CurrentInfoPage = () => {
                 <td>{d.name} </td>
                 <td>{d.password} </td>
                 <td>{d.email} </td>
+
                 <td>{d.phone} </td>
                 <td>{d.address} </td>
                 <td>{d.city} </td>
