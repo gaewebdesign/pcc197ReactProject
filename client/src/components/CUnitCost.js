@@ -39,6 +39,7 @@ const CUnitCost = (props) => {
           .then(
                (response)=>{
                     setMenu( response.data )
+                    setMenuOption( response.data.length)
                }
           ).catch(
  

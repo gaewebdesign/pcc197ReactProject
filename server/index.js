@@ -419,6 +419,18 @@ app.post('/api/addresource' , (req,res )=>{
       })
 
  })
+
+ //get everyone who's logged in
+ app.get('/api/getloggers', (req,res)=>{
+  const sql = "select * from logger order by _id"
+
+  db.query(sql, (err,result) =>{
+     console.log( result )
+     res.send( result )
+
+  })
+
+ })
  
  app.get('/api/getresource', (req,res) =>{
   //const sql = "select name,displayname,email,password from user order by _id"
@@ -525,7 +537,7 @@ app.get('/test/user2', (req,res) => {
 // get the resource database
 app.get("/api/dbresource" , (req,res) => {
 
-  const sql = "select * from resource order by _id asc"
+  const sql = "select * from resource order by _id desc"
   db.query(sql, (err,result) => {
      if(err){
          res.status=400

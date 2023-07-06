@@ -9,6 +9,9 @@ export const url_logger = "http://localhost:3001/api/logger"
 export const url_current = "http://localhost:3001/api/current"
 export const url_currentinfo = "http://localhost:3001/api/currentinfo" 
 
+// every one who's logged in
+export const url_getloggers ='http://localhost:3001/api/getloggers'
+
 
 export const url_getusers = "http://localhost:3001/api/getusers"
 export const url_getincidents = "http://localhost:3001/api/getincidents"

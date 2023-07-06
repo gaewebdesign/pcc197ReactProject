@@ -88,9 +88,10 @@ const CAddResource =  (props) =>
     const ReloadButton = (evt)=> {
 
            window.location.reload()
-
-           
-
+          // window.location = window.location.ref
+           //window.history.back()
+           //window.history.forward()
+//        window.location.href = window.location.href
 
      }
 
