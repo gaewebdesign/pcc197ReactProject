@@ -3,6 +3,81 @@ import {React,useState, useEffect} from 'react'
 import Axios from 'axios'
 import * as CONSTANTS from '../pages/Constants.js'
 
+const UserList = () => {
+   const [userList , setUserList] = useState()
+   function  fetcher(){
+              Axios.get(CONSTANTS.url_getusers)
+              .then(
+                      (response)=>{
+                         setUserList( response.data )
+                      }
+              ).catch(
+                  (error)  => {
+                       alert("ERROR(likely no server): " + error )
+                  }
+              )
+        
+          } 
+      
+          // Load the list of users (once)
+          useEffect( () => {fetcher()} , [ ] )
+        
+
+
+
+   if( CONSTANTS.DEBUG==false){
+      return (
+         <span></span>
+      )
+   }
+
+
+   return(
+         <div>
+             <center>  User List</center>
+             <table class="DBTableLight">
+                     <thead>
+                     <tr>
+                     <td>Role</td>
+                     <td>OwnerID</td>                            
+                     <td>User</td>                            
+                     <td>Display Name</td>
+                     <td>Email</td>
+                     <td>Password</td>
+                     <td>Address</td>
+
+                     </tr>
+                     </thead>
+
+                     { userList?.map(
+                         (d) => 
+                             <tr>
+                             <td>{d.roleid}</td>
+                             <td>{d.ownerid}</td>
+                             <td>{d.user}</td>
+                             <td>{d.name}</td>                                    
+                             <td>{d.email}</td>
+                             <td>{d.password}</td>
+                             <td>{d.address} &nbsp;
+                                 {d.city} &nbsp;
+                                 {d.state} &nbsp;
+                                 {d.zip}
+                             </td>
+
+                              </tr>
+                         )
+
+                 }
+
+             </table>
+         
+         </div>
+
+   )
+
+
+
+}
 const LoginPageJWT = (props )=>  {
    const [user , setUser] = useState( )
    const [password ,setPass]  = useState()
@@ -119,6 +194,7 @@ const LoginPageJWT = (props )=>  {
             
             </div>
 
+               <UserList/>
 
            </div>
 

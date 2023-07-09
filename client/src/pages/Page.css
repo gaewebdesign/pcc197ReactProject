@@ -24,7 +24,8 @@ th, td {
   }
 
   .DBTableLight {
-    background-color: rgb(237, 241, 245);
+    background-color: rgb(247, 250, 253);
     margin-left: auto;
     margin-right: auto;
+    font-size: 10px;
    }
