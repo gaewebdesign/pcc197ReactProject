@@ -12,6 +12,8 @@ import {CFormInput} from "./CFormInput.js"
 import {CPopUp} from './CPopUp.js'
 import {CUnitCost} from './CUnitCost.js'
 
+import {CPrimarySecondary} from './CPrimarySecondary.js'
+
 import Axios  from 'axios';
  
 import * as CONSTANTS from '../pages/Constants.js'
@@ -123,8 +125,7 @@ const CAddResource =  (props) =>
           cap : capabilities,
           dist: distance ,
           cost: costText , 
-          unit: costMenuItem ,
-          last: last
+          unit: costMenuItem 
         
         } )
         .then(
@@ -179,15 +180,23 @@ const CAddResource =  (props) =>
        {/* feed in url  dont use CPopUp (original version) 
            make the Axios call from witin the component
       */}
-       <CPopUp name="-Primary Function" url={url_resourceid}
+        <CPrimarySecondary 
+         url = {CONSTANTS.url_resourceid }
+         name="-Primary Function" name2="Secondary Function"
+         func = {pullSelectedPrimaryMenu }
+         func2 = {pullSelectedSecondaryMenu}
+         />
+{/*
+         <CPopUp name="-Primary Function" url={url_resourceid}
        func = {pullSelectedPrimaryMenu }
        />
       
        <CPopUp name="-Secondary Function" url={url_resourceid} 
        func = {pullSelectedSecondaryMenu}
        />
+ */}
 
-       <CFormInput name="-Description" id="desc" placeholder="-Desc-" func={pullDescription}/>
+ <CFormInput name="-Description" id="desc" placeholder="-Desc-" func={pullDescription}/>
        <CFormInput name="-Capabilities" id="cap" placeholder="-Cap-" func={pullCapabilities}/>
        <CFormInput name="-Distance" id="dist" placeholder="2" func={pullDistance}/>
 

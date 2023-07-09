@@ -56,7 +56,7 @@ function sql(){
 
 }
 
-function resourcepage(dpoch,ownerid,xname,primary,seconday,description,capabilities,distance,cost,perunit,last){
+function resourcepage(dpoch,ownerid,xname,primary,seconday,description,capabilities,distance,cost,perunit){
 
 
 
@@ -72,7 +72,6 @@ capabilities = "CAP:"
 distance = 1
 cost=5
 perunit = 1
-last = 0
 
 const quotes = (q) => { return( "'"  + q + "'" ) }
 
@@ -134,7 +133,7 @@ function Item( theArray){
 
 //console.log( Item ( Accident ))
 
-function resourcepage(epoch,ownerid,xname,primary,secondary,description,capabilities,distance,cost,unit,last){
+function resourcepage(epoch,ownerid,xname,primary,secondary,description,capabilities,distance,cost,unit){
       function epoch(){
             let min = new Date('1-1-2010').getTime()
             let max = Date.now()
@@ -143,7 +142,7 @@ function resourcepage(epoch,ownerid,xname,primary,secondary,description,capabili
       
       
       }
-      function row(ownerid,xname,primary,secondary,description,capabilities,distance,cost,unit,last){ 
+      function row(ownerid,xname,primary,secondary,description,capabilities,distance,cost,unit){ 
       let e = epoch()
       let sql = "("       
       sql +=  quotes( e ) + ","   
@@ -156,8 +155,7 @@ function resourcepage(epoch,ownerid,xname,primary,secondary,description,capabili
       sql +=  quotes( capabilities )   + ","
       sql +=  quotes( distance )   + ","
       sql +=  quotes( cost )   + ","
-      sql +=  quotes( unit )   + ","
-      sql +=  quotes( last )  
+      sql +=  quotes( unit )   
       
       sql += ")"
 
@@ -165,7 +163,7 @@ function resourcepage(epoch,ownerid,xname,primary,secondary,description,capabili
 }
 
      sql = "insert into `resource` \n"
-     sql += "(resourceid ,ownerid,name,prime,secondary,description, cap,dist,cost,unit,last) \n" 
+     sql += "(resourceid ,ownerid,name,prime,secondary,description, cap,dist,cost,unit) \n" 
      sql += "values \n"
      
      for (let i = 0; i <= 15; i++) {
@@ -179,17 +177,16 @@ function resourcepage(epoch,ownerid,xname,primary,secondary,description,capabili
             distance = RANGE(5)
             cost = RANGE(11)
             unit = RANGE(4)         
-            last = RANGE(11)         
 
-            sql += row(ownerid,xname,primary,secondary,description,capabilities,distance,cost,unit,last) + ",\n"
+            sql += row(ownerid,xname,primary,secondary,description,capabilities,distance,cost,unit) + ",\n"
        }
 
       }
-      sql += row(ownerid,xname,primary,secondary,description,capabilities,distance,cost,unit,last) 
+      sql += row(ownerid,xname,primary,secondary,description,capabilities,distance,cost,unit) 
 
       console.log( sql )
 
 }
 
 //Item(Accident)
-resourcepage(e,ownerid,xname,primary,secondary,description,capabilities,distance,cost,perunit,last)
+resourcepage(e,ownerid,xname,primary,secondary,description,capabilities,distance,cost,perunit)

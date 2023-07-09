@@ -193,7 +193,7 @@ app.post('/api/addresource' , (req,res )=>{
   let last = req.body.last
   
     // CREATE THE mysql command
-   let sql = "insert into resource(resourceid,ownerid,name,prime,secondary,description,cap,dist,cost,unit,last)  values("
+   let sql = "insert into resource(resourceid,ownerid,name,prime,secondary,description,cap,dist,cost,unit)  values("
   
     sql += quotes( resourceid ) + ","
     sql += asValue( ownerid )+ ','
@@ -205,8 +205,7 @@ app.post('/api/addresource' , (req,res )=>{
   
     sql += asValue( dist)+ ','
     sql += asValue( cost)+ ','
-    sql += asValue(unit)+ ','
-    sql += asValue(last) 
+    sql += asValue(unit)
     sql += ')'
   
   
