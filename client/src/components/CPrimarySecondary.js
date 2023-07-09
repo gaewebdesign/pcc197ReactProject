@@ -21,15 +21,15 @@ const CPrimarySecondary = (props) => {
      props.func(selected)
      props.func2(selected2)
 
-     
-     const url = CONSTANTS.url_resourceid
+
      function fetcher(){
 
-        Axios.get(url)
+        Axios.get(props.url)
           .then(
                (response)=>{
 
                     setMenu( response.data )
+                    setSelected(response.data.length)
 
                }
           ).catch(
@@ -39,16 +39,23 @@ const CPrimarySecondary = (props) => {
   
       }  
 
-      
+      // when the Primary menu is selected, also set up the Secondary menu
+      // omit whatever is selected in the Primary Menu
       const handleChange = (evt)=> {
           let temp=[]  
+          // primary menu selected value
           setSelected ( evt.target.value )
+          /*
+            copy the Primary into the secondary menu (empty by default)
+            but omit the Primary menu selection
+          */
           menu?.map(
-
                (option) => { if(option.label != evt.target.value)  temp.push( option)  }
-       
-           )
+          )
           setMenu2(temp)
+          // if the user never selects from the Secondary menu
+          // then useState(0) is the default
+          // handleChange2 handles when Secondary menu is selected
    
      }
 
