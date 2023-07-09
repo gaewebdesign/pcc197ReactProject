@@ -74,15 +74,48 @@ function App() {
   const [ user, SetUser]  = useState("user")
   const [ name, SetName]  = useState("Elon Muak")
   const [ loggedIn, setLoggedIn] = useState(false)
-  const [logger , SetLogger] = useState({ })
+  const [logger , setLogger] = useState({ })
 
   const [toggleView, SetToggleView] = useState(true)
   
-    
+  useEffect(()=>{fetcher() }, [ ] )
+
+
+  function fetcher(){
+
+    Axios.get(CONSTANTS.url_current)
+      .then(
+           (response)=>{
+
+                console.log("*** setLogger ***")
+                console.log(response.data)
+                setLogger( response.data )
+                console.log("    setLogger ***")
+//                ImLoggedIn(response.data)
+
+              }
+      ).catch(
+
+          (response) => { alert(response)}
+      )          
+
+  } 
+
+
   const ImLoggedIn = (info) => {
    // Set who's logged in
-        alert("logged in:" + info.roleid + " " + info.user + " " + info.ownerid + " " + info.name)
-          SetLogger( info )
+
+         let html = "logged in: \n"
+         html += "roleid: " + info.roleid + "user: " + info.user + " ownerid: " + info.ownerid + " " + info.name + "\n"
+         html += info.password + " " + info.email + " " + info.phone + "\n"
+         html += info.address + " " + info.city + " " + info.state + " " + info.zip 
+         alert(html )
+
+         console.log("ImLoggedIn(info)  ")
+         console.log(info)  
+         console.log("ImLoggedIn(info)  ")
+
+          setLogger( info )
 
          // local storage settings
           setLoggedIn (true )
