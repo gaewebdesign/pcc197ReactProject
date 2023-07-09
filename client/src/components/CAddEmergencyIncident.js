@@ -194,7 +194,7 @@ const CAddEmergencyIncident =  (props) =>
        <div class= "col-sm-3">
    
        <button type="button" 
-           class="btn btn-danger"
+           class="btn btn-secondary"
            onClick = {CancelButton}
         >Cancel</button>       
 

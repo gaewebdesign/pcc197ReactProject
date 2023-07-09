@@ -98,7 +98,7 @@ const CAddResource =  (props) =>
      }
 
     const CancelButton = () => {
-//        alert("not implemented")
+
         window.history.back()
 
     }
@@ -217,7 +217,7 @@ const CAddResource =  (props) =>
        <div class= "col-sm-6"></div>
        <div class= "col-sm-3">
        <button type="button" 
-           class="btn btn-danger"
+           class="btn btn-secondary"
            onClick = {CancelButton}
         >Cancel</button>
        </div>
