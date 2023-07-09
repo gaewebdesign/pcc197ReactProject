@@ -147,20 +147,31 @@ const CSearch =  (props) =>
  
         }
     
-    // COMPONENT  ****************************************************
-    // USED BELOW AS <CSubmit/>
+    /* COMPONENT  ****************************************************
+       first usage as component
+       USED BELOW AS <CSubmit/>
+    */
     const CSubmit = (props)=>{
      
          return(
                 <div class="container-sm">
                     <div class="row">
-                        <div class= "col-sm-9"></div>
+                    <div class= "col-sm-6"></div>
+
+
+                    <div class= "col-sm-3">  
+                    <button type="button" 
+                    class="btn btn-secondary"
+                    onClick = {props.CancelButton}
+                     >{props.cancel}</button>
+
+                    </div>
  
                         <div class= "col-sm-3">
                         <button type="button" 
                             class="btn btn-primary"
-                            onClick = {props.onClick}
-                             >{props.text}</button>
+                            onClick = {props.SubmitButton}
+                             >{props.search}</button>
                         </div>
   
                     </div>
@@ -169,6 +180,11 @@ const CSearch =  (props) =>
 
     }
     // COMPONENT  ****************************************************
+
+    const CancelButton = (evt) => {
+        window.history.back()
+    }
+
     const SubmitButton=(evt) => {
     
         console.log( url_search)
@@ -224,7 +240,7 @@ const CSearch =  (props) =>
 
        <p/>
        <hr/>
-       <CSubmit text="Search" onClick={SubmitButton}/>
+       <CSubmit cancel="Cancel" search="Search" SubmitBotton={SubmitButton} CancelButton={CancelButton}/>
      
        <hr/>
        <Results />
