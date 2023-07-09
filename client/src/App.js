@@ -75,6 +75,8 @@ function App() {
   const [ name, SetName]  = useState("Elon Muak")
   const [ loggedIn, setLoggedIn] = useState(false)
   const [logger , SetLogger] = useState({ })
+
+  const [toggleView, SetToggleView] = useState(true)
   
   /*
   const [ owner, SetOwner]  = useState(" Zuck")
@@ -200,8 +202,10 @@ const ReadMePage = (props) => {
 
 }
 
+
+
 const Database = () => {
-     if(CONSTANTS.DEBUG == true){
+     if(toggleView== true ){
          return(
               <div>
               <li><Link to="/dbresource"> Resources </Link></li>
@@ -226,10 +230,10 @@ const Database = () => {
 
 }
 const TestRoutines = () =>{
-     if(CONSTANTS.DEBUG == true){
+     if( toggleView==true ){
          return(
                   <div>
-                    <b>Test Routines</b>
+                    
                     <li><Link to="/test1"> Test Create User (e2e) </Link></li>
                     <li><Link to="/test2"> Test Options (e2e)  </Link></li>
                     <li><Link to="/test3"> Test Form Component (insert into onUser) </Link></li>
@@ -244,18 +248,17 @@ const TestRoutines = () =>{
 
      }
 
-     return(
-          <div>
-          <b>Test Routines</b>
-          </div>
-
-     )
+     
 
 }
 
 
 const NavigationPage = (props)=> {
+       const onToggle = (evt) => {
 
+           SetToggleView( !toggleView )
+
+       }
        return(
              <div>
              <center>
@@ -278,11 +281,21 @@ const NavigationPage = (props)=> {
              <hr/>
                 <div class="container-sm">
                   <div class = "row">
-                  <div class="col-sm-6 "> 
+                  <div class="col-sm-5 "> 
                    <b>Database Tables</b>
                        <Database/>
                    </div>
-                   <div class="col-sm-6">
+                   <div class="col-sm-2">
+                      <button
+                        class="btn btn-secondary btn-sm"
+                        onClick={onToggle}
+                        >
+                        Toggle
+                      </button>
+
+                   </div>
+                   <div class="col-sm-5">
+                   <b>Test Routines</b>
                       <TestRoutines/>
                   </div>                  
 
