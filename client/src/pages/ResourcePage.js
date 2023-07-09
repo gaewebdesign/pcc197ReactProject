@@ -64,7 +64,6 @@ const ResourcePage = () => {
                 <td>[date]</td>
                 <td>owner id </td>
                 <td>name</td>
-                <td>[owner]</td>
                 <td>prime</td>                
                 <td>secondary</td>                
                 <td>description</td>
@@ -72,7 +71,6 @@ const ResourcePage = () => {
                 <td>dist</td>
                 <td>cost</td>
                 <td>unit</td>
-                <td>last</td>
                 </tr>
                </thead>
             { resource?.map(
@@ -83,7 +81,6 @@ const ResourcePage = () => {
                 <td>{epochtodate(d.resourceid)} </td>
                 <td>{d.ownerid} </td>
                 <td>{d.name} </td>
-                <td>---</td>
                 <td>{d.prime} </td>
                 <td>{d.secondary} </td>
                 <td>{d.description} </td>                                
@@ -91,8 +88,6 @@ const ResourcePage = () => {
                 <td>{d.dist} </td>                                
                 <td>{d.cost} </td>                                
                 <td>{d.unit} </td>                                
-                <td>{d.last} </td>                                                
-
                 </tr>  
                 ) 
                 
