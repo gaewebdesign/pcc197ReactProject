@@ -97,6 +97,11 @@ const CAddResource =  (props) =>
 
      }
 
+    const CancelButton = () => {
+//        alert("not implemented")
+        window.history.back()
+
+    }
     const SubmitButton=(evt) => {
     
         const email=""
@@ -209,13 +214,18 @@ const CAddResource =  (props) =>
 
        <div class="container-sm">
        <div class="row">
-       <div class= "col-sm-9"></div>
-
+       <div class= "col-sm-6"></div>
+       <div class= "col-sm-3">
+       <button type="button" 
+           class="btn btn-danger"
+           onClick = {CancelButton}
+        >Cancel</button>
+       </div>
        <div class= "col-sm-3">
        <button type="button" 
            class="btn btn-primary"
            onClick = {SubmitButton}
-        >Save to DB</button>
+        >Save</button>
        </div>
  
        </div>
