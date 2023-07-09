@@ -78,13 +78,7 @@ function App() {
 
   const [toggleView, SetToggleView] = useState(true)
   
-  /*
-  const [ owner, SetOwner]  = useState(" Zuck")
-  const [ roleid , SetRoleID] = useState(999)
-  const [ email, SetEmail] = useState(" **email**")  
-  const [ phone, SetPhone] = useState(" 999 ")  
-  */
-  
+    
   const ImLoggedIn = (info) => {
    // Set who's logged in
         alert("logged in:" + info.roleid + " " + info.user + " " + info.ownerid + " " + info.name)
@@ -115,14 +109,13 @@ function App() {
             console.log("CURRENT USER " + CONSTANTS.url_current)
 //            console.log(response)
             console.log("CURRENT USER " + CONSTANTS.url_current)
-
                   
           })
            .catch(
             (error => { alert("ERR: " + error)})
            )
            
-        // ******************** /
+        
    }
 
 
@@ -154,26 +147,13 @@ const CreateIncident = (props) => {
 
 const ReadMePage = (props) => {
 
-/*
 
-  roleid: {props.logger.roleid}<br/>
-            user: {props.logger.user}<br/>
-            name:  {props.logger.name} <br/>
-            email:  {props.logger.email} <br/>
-            phone:  {props.logger.phone} <br/>
-            address:  {props.logger.address} <br/>
-            city:  {props.logger.city} <br/>
-            zip:  {props.logger.zip} <br/>
-*/  
   return(
             <div>
             <h1>Read Me</h1>
              <b>FIX</b><br/>
-             fix anywhere a drop-down menu is used (in the component?)<br/>
-             this occurs becase onChange() doesnt get executed<br/>
-             selection menu, although there can be default selection, <br/>
-             the return value is undefined unless useState has a default value
-
+             Axios hook doesnt work 
+             <br/>
              <hr/>
              <b>pages/Constants.js</b> file contains <br/>
              debug= true (or false) to toggle debug output<br/>
@@ -233,7 +213,7 @@ const TestRoutines = () =>{
      if( toggleView==true ){
          return(
                   <div>
-                    
+                    <li><Link to="/readme"> Readme </Link></li>  
                     <li><Link to="/test1"> Test Create User (e2e) </Link></li>
                     <li><Link to="/test2"> Test Options (e2e)  </Link></li>
                     <li><Link to="/test3"> Test Form Component (insert into onUser) </Link></li>
@@ -265,7 +245,7 @@ const NavigationPage = (props)=> {
              
              <ul class="no-bullets">
 
-             <li><Link to="/test">  Read Me</Link> </li>
+             <li><Link to="/readme">  Read Me</Link> </li>
              <li><Link to="/caddresource">  AddResource</Link> </li>
              <li><Link to="/caddemergency">  Add Emergency Incident</Link> </li>
              <li><Link to="/csearch">  Search</Link> </li>
@@ -367,7 +347,7 @@ const LoggedInStrip = (props) => {
               <BrowserRouter>
               <NavigationPage/>
               <Routes>
-              <Route path="/test" element={<ReadMePage logger={logger}/>} />
+              <Route path="/readme" element={<ReadMePage logger={logger}/>} />
 
               <Route path="/caddresource"  element={<CAddResource logger={logger}/>} />
               <Route path="/caddemergency"  element={<CAddEmergencyIncident logger={logger}/>} />

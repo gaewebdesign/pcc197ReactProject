@@ -164,7 +164,7 @@ const LoginPageJWT = (props )=>  {
                                 </div>
                        <div class="col-sm-4">
                                  <input
-                                  type="text"
+                                  type="password"
                                   id="passwordr"
                                   onChange= {onPassword}
                       ></input>
@@ -174,7 +174,7 @@ const LoginPageJWT = (props )=>  {
             </div>
 
             </div>
-
+            {user}  ({password}) <br/>
             <div class="form-group">
             <div class="container-sm">
                       <div class="row">
