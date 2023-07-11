@@ -132,7 +132,7 @@ VALUES (NULL,1,'-Transportation'),
 
 CREATE TABLE `categoryid` (
   `_id` int NOT NULL AUTO_INCREMENT,
-  `label` varchar(50) UNIQUE DEFAULT NULL,
+  `label` INT UNIQUE DEFAULT NULL,
   `value` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
@@ -231,7 +231,7 @@ VALUES
 
 CREATE TABLE `costperunitid` (
   `_id` int NOT NULL AUTO_INCREMENT,
-  `label` varchar(50) DEFAULT NULL,
+  `label` INT UNIQUE DEFAULT NULL,
   `value` varchar(50) NOT NULL,
   PRIMARY KEY (`_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=276 DEFAULT CHARSET=latin1;
@@ -241,11 +241,11 @@ alter table `costperunitid` AUTO_INCREMENT=1;
 
 insert into costperunitid (_id,label,value)
 VALUES 
-(NULL,'1',"per mile( Uber)" ),
-(NULL,'2',"per mile( Lyft)"),
-(NULL,'3',"per mile( Chariot)"),
-(NULL,'4',"per mile( Escort)"),
-(NULL,'5',"per mile( Police)")
+(NULL,1,"per mile( Uber)" ),
+(NULL,2,"per mile( Lyft)"),
+(NULL,3,"per mile( Chariot)"),
+(NULL,4,"per mile( Escort)"),
+(NULL,5,"per mile( Police)")
 ;
 
 alter table `costperunitid` AUTO_INCREMENT=1;

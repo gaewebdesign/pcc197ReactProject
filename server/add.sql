@@ -22,3 +22,11 @@ VALUES
 ;
 
 
+insert into costperunitid (_id,label,value)
+VALUES 
+(NULL,11,"per hour( taxi)" ),
+(NULL,12,"per hour( bus)"),
+(NULL,33,"per hour( BART)"),
+(NULL,43,"per hour( PTC)")
+;
+
