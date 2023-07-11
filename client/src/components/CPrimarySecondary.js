@@ -14,14 +14,29 @@ const CPrimarySecondary = (props) => {
      const [ menu, setMenu] = useState(empty)
      const [ menu2, setMenu2 ] = useState(empty)
 
-     const [ selected ,setSelected]  = useState(0)
+     const [ selected ,setSelected]  = useState(1)   // by default 1st option selected
      const [ selected2 ,setSelected2]  = useState(0)
 
      useEffect( ()=>{ fetcher() } ,[ ])
      props.func(selected)
      props.func2(selected2)
 
+     // Create the same menu with the first option selected
+     const menu_sel = []
+     menu?.map(
+        (option) => {
 
+            if(option.label==1) {
+               menu_sel.push({sel:true , label:option.level ,value:option.value})
+            }else{
+               menu_sel.push({sel:false , label:option.label ,value:option.value})
+
+            }
+
+        }
+
+
+     )
      function fetcher(){
 
         Axios.get(props.url)
@@ -75,10 +90,11 @@ const CPrimarySecondary = (props) => {
            onChange = {handleChange}
         >
         {
-                menu.map(
-                      (option) => {
+                // 1st option is selected by default
+                menu_sel.map(
+                    (option) => {
                            return (
-                            <option selected value={option.label}>{option.value}</option>
+                              <option selected={option.sel} value={option.label}>{option.value}</option>
                        )
                       }
                 )
