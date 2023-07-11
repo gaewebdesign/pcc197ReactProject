@@ -90,6 +90,7 @@ const CAddResource =  (props) =>
     const ReloadButton = (evt)=> {
 
            window.location.reload()
+///           window.location.ref = window.location.ref
           // window.location = window.location.ref
            //window.history.back()
            //window.history.forward()
@@ -99,7 +100,11 @@ const CAddResource =  (props) =>
 
     const CancelButton = () => {
 
-        window.history.back()
+//        alert("cancel")
+        window.location.replace(window.location.href);
+
+//        window.location.ref = window.location.ref
+//        window.history.back()
 
     }
     const SubmitButton=(evt) => {

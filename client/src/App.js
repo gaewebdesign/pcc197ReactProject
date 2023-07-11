@@ -78,26 +78,44 @@ function App() {
 
   const [toggleView, SetToggleView] = useState(true)
   
-  useEffect(()=>{fetcher() }, [ ] )
+  useEffect(()=>{ getLocalStorage() }, [ ] )
 
 
-  function fetcher(){
+  function getLocalStorage(){
 
-    Axios.get(CONSTANTS.url_current)
-      .then(
-           (response)=>{
+    let logger = localStorage.getItem('logger')
+          let loggedin = localStorage.getItem('loggedin')
 
-                console.log("*** setLogger ***")
-                console.log(response.data)
-                setLogger( response.data )
-                console.log("    setLogger ***")
-//                ImLoggedIn(response.data)
+          let roleid = localStorage.getItem("roleid" )
+          let user = localStorage.getItem("user" )
+          let ownerid = localStorage.getItem("ownerid")
+          let name = localStorage.getItem("name")
 
-              }
-      ).catch(
+ 
+          let password = localStorage.getItem("password" )
+          let email = localStorage.getItem("email" )
+          let phone = localStorage.getItem("phone" )
+          let address = localStorage.getItem("address" )
+          let city = localStorage.getItem("city" )
+          let state = localStorage.getItem("state" )
+          let zip = localStorage.getItem("zip" )
 
-          (response) => { alert(response)}
-      )          
+          let loggerInfo = {roleid: roleid, user:user, ownerid:ownerid,
+            name: name, password:password, email:email,
+            phone:phone, address: address, city:city, state:state, zip:zip
+           }
+
+          setLogger( loggerInfo)
+          setLoggedIn(loggedin)
+
+          console.log("loggedInfo: ****************************** ")
+          console.log(  loggerInfo)
+          console.log("loggedInfo: ****************************** ")
+
+
+
+
+
 
   } 
 
@@ -111,6 +129,31 @@ function App() {
          html += info.address + " " + info.city + " " + info.state + " " + info.zip 
          alert(html )
 
+         setLoggedIn (true )
+         setLogger( info )
+
+         localStorage.setItem("loggedin", true )
+
+         localStorage.setItem("roleid", info.roleid)
+         localStorage.setItem("user", info.user)
+         localStorage.setItem("ownerid", info.ownerid)
+         localStorage.setItem("name", info.name )
+
+         localStorage.setItem("password", info.password )
+         localStorage.setItem("email", info.email )
+         localStorage.setItem("phone", info.phone )
+         localStorage.setItem("address", info.address )
+         localStorage.setItem("city", info.city )
+
+         localStorage.setItem("state", info.state )
+         localStorage.setItem("zip", info.zip )
+
+         // TODO: doesnt work as expected ...
+         localStorage.setItem("logger", info )
+         localStorage.setItem("info", JSON.stringify(info))
+
+/*
+
          console.log("ImLoggedIn(info)  ")
          console.log(info)  
          console.log("ImLoggedIn(info)  ")
@@ -123,7 +166,7 @@ function App() {
 
           localStorage.setItem("info", JSON.stringify(info))
           console.log( JSON.parse(localStorage.getItem("info")))
-
+*/
           // Save the current person logged in
           Axios.post(CONSTANTS.url_logger,{
           ownerid: info.ownerid,
