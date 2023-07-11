@@ -373,8 +373,8 @@ const LoggedInStrip = (props) => {
     <div>
         <div class="container-sm LoggedInStrip ">
           <div class="row">
-              <div class="col-sm-4 ">Logged In: {props.name} </div>
-              <div class="col-sm-8"></div>
+              <div class="col-sm-7 ">Logged In: {props.logger.name} </div>
+              <div class="col-sm-5"></div>
           </div>
         </div>
     </div> 
@@ -390,12 +390,12 @@ const LoggedInStrip = (props) => {
     // TODO allow for additional roles
     let info = <div>Unknown Role</div>
     if(props.logger.roleid==1){
-      info= <div>{props.logger.name}<br/>{props.logger.phone}<br/>CIMT User<br/>*{props.logger.ownerid}*</div>
+      info= <div>{props.logger.name}<br/>{props.logger.phone}<br/>CIMT User<br/></div>
     }else if(props.logger.roleid==2){
       info= <div>{props.logger.name}<br/>{props.logger.address}<br/>
-      {props.logger.city}<br/>{props.logger.state}&nbsp;{props.logger.zip}<br/>Resource Provider<br/>*{props.logger.ownerid}*</div>
+      {props.logger.city}<br/>{props.logger.state}&nbsp;{props.logger.zip}<br/>Resource Provider<br/></div>
     }else if(props.logger.roleid==3){
-      info= <div>{props.logger.name}<br/>{props.logger.email}<br/>Admin<br/>*{props.logger.ownerid}*</div>           
+      info= <div>{props.logger.name}<br/>{props.logger.email}<br/>Admin<br/></div>           
     }
       
     return(
