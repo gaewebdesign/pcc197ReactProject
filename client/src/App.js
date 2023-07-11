@@ -28,6 +28,7 @@ import {CurrentInfoPage} from './pages/CurrentInfoPage.js'
 import {LoggerPage} from './pages/LoggerPage.js'
 
 import {IncidentPage} from './pages/IncidentPage.js'
+import {LastCategoryIndex} from './pages/LastCategoryIndex.js'
 
 import {ResourceID,CategoryID, CostID} from './pages/Menu.js'
 
@@ -234,6 +235,8 @@ const Database = () => {
               <li><Link to="/dbcategoryid"> CategoryID </Link></li>
               <li><Link to="/dbresourceid"> ResourceID </Link></li>
               <li><Link to="/dbcostid"> CostID </Link></li>
+              <li><Link to="/dblastcategoryindex"> LastCategoryIndex</Link></li>
+
               </div>
          )
 
@@ -401,7 +404,10 @@ const LoggedInStrip = (props) => {
               <Route path="/dbincident"  element={<IncidentPage/>} />                            
               <Route path="/dbcategoryid"  element={<CategoryID/>} />                            
               <Route path="/dbresourceid"  element={<ResourceID/>} />                            
-              <Route path="/dbcostid"  element={<CostID/>} />                            
+              <Route path="/dbcostid"  element={<CostID/>} /> 
+              <Route path="/dblastcategoryindex"  element={<LastCategoryIndex/>} /> 
+              
+              
               
               <Route path="/test1"  element={<TestTestBox/>} />
               <Route path="/test2"  element={<TestOptions/>} />
