@@ -27,7 +27,7 @@ const CPrimarySecondary = (props) => {
         (option) => {
 
             if(option.label==1) {
-               menu_sel.push({sel:true , label:option.level ,value:option.value})
+               menu_sel.push({sel:true , label:option.label ,value:option.value})
             }else{
                menu_sel.push({sel:false , label:option.label ,value:option.value})
 
@@ -59,6 +59,7 @@ const CPrimarySecondary = (props) => {
       const handleChange = (evt)=> {
           let temp=[]  
           // primary menu selected value
+          console.log(evt.target)
           setSelected ( evt.target.value )
           /*
             copy the Primary into the secondary menu (empty by default)
