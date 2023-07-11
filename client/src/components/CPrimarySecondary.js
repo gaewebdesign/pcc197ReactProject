@@ -21,7 +21,7 @@ const CPrimarySecondary = (props) => {
      props.func(selected)
      props.func2(selected2)
 
-     // Create the same menu with the first option selected
+     // Create the menu with the first option selected
      const menu_sel = []
      menu?.map(
         (option) => {
@@ -42,10 +42,7 @@ const CPrimarySecondary = (props) => {
         Axios.get(props.url)
           .then(
                (response)=>{
-
                     setMenu( response.data )
-                    setSelected(response.data.length)
-
                }
           ).catch(
  
