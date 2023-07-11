@@ -47,27 +47,6 @@ import {TestAxiosHook}  from './test/TestAxiosHook.js'
 https://blog.logrocket.com/react-router-v6-guide/
        npm install react-router-dom
 */
-class Getinfo extends React.Component {
-    constructor(){
-         super()
-
-    }
-    componentDidMount(){
-           console.log("componentDidMount")
-            alert("GetInfo")
-    }
-
-    render(){
-      return(
-        <div>DDD</div>
-      )
-
-    }
-
-}
-
-const n = new Getinfo()
-
 function App() {
 
   
@@ -113,10 +92,6 @@ function App() {
           console.log("loggedInfo: ****************************** ")
 
 
-
-
-
-
   } 
 
 
@@ -152,21 +127,6 @@ function App() {
          localStorage.setItem("logger", info )
          localStorage.setItem("info", JSON.stringify(info))
 
-/*
-
-         console.log("ImLoggedIn(info)  ")
-         console.log(info)  
-         console.log("ImLoggedIn(info)  ")
-
-          setLogger( info )
-
-         // local storage settings
-          setLoggedIn (true )
-          localStorage.setItem("loggedin", true)
-
-          localStorage.setItem("info", JSON.stringify(info))
-          console.log( JSON.parse(localStorage.getItem("info")))
-*/
           // Save the current person logged in
           Axios.post(CONSTANTS.url_logger,{
           ownerid: info.ownerid,
