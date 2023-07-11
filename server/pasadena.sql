@@ -134,6 +134,8 @@ CREATE TABLE `categoryid` (
   `_id` int NOT NULL AUTO_INCREMENT,
   `label` INT UNIQUE DEFAULT NULL,
   `value` varchar(50) DEFAULT NULL,
+  `last` INT DEFAULT NULL,
+
   PRIMARY KEY (`_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
@@ -142,10 +144,10 @@ alter table `categoryid` AUTO_INCREMENT=1;
 
 INSERT INTO `categoryid` 
 VALUES 
-(NULL,'1','-must evac, secure lockdown'),
-(NULL,'2','-may evac, secure lockdown'),
-(NULL,'3','-no evac, limited lockdown'),
-(NULL,'4','-no evac, no lockdown');
+(NULL,1,'-must evac, secure lockdown',1),
+(NULL,2,'-may evac, secure lockdown',1),
+(NULL,3,'-no evac, limited lockdown',1),
+(NULL,4,'-no evac, no lockdown',1);
 
 DROP TABLE IF EXISTS `resource`;
 CREATE TABLE `resource` (

@@ -425,19 +425,34 @@ app.post('/api/addresource' , (req,res )=>{
       })
 
  })
+
  app.get("/api/categoryid" , (req,res) => {
 
-   const sql = "select label, value from categoryid order by label"
+   const sql = "select * from categoryid order by _id"
    db.query(sql, (err,result) => {
       console.log(" getting category table ")
       console.log( result )
-
+      res.status(200)
       res.send( result )  
   })
 
 
 })
 
+app.get("/api/lastcat" , (req,res) => {
+
+  const sql = "select label,last from categoryid order by label"
+  db.query(sql, (err,result) => {
+     console.log(" getting  label,last table ")
+     console.log( result )
+     res.status(200)
+     res.send( result )  
+ })
+
+
+})
+
+/*
 // the last values of C1, C2 , C3 ,C4
 // should be only one row 
 app.get("/api/getlastcategoryindex" , (req,res) => {
@@ -452,11 +467,38 @@ app.get("/api/getlastcategoryindex" , (req,res) => {
 
 
 })
+*/
+/* increment the last category (C#-n).. where 
+  # is the category label and n is the last one used
+   lastcat table is {label,value}
+   where label(INT) represent # in  C#
+   value(INT) is the latest used
+*/
+// POST http://localhost:3001/api/lastcat_increment
+app.post("/api/lastcat_increment", (req,res)=>{
+    let  label = req.body.label
 
+    let sql = "update categoryid set last=last+1 where label =" + label
+
+    db.query(sql, (err,result) => {
+      if(err){
+       res.status(500)
+        res.send("err")
+     }else{
+         res.status(200)
+         res.send(result)
+ 
+     }
+   })
+    
+
+
+})
 // this follows above get 
 // app.post("/api/lastcategoryincrement",(req,res) => {
 //  "http://localhost:3001/api/lastcategoryincrement"
-  app.post("/api/lastcategoryincrement",(req,res) => {  
+/*
+app.post("/api/lastcategoryincrement",(req,res) => {  
 
   let index = req.body.index
   let sql=""
@@ -480,7 +522,7 @@ app.get("/api/getlastcategoryindex" , (req,res) => {
   })
 
 })
-
+*/
 app.get("/api/resourceid" , (req,res) => {
 
   const sql = "select label, value from resourceid  order by label"
@@ -598,7 +640,7 @@ app.get("/api/dbuser" , (req,res) => {
 
 app.get("/api/getincidents" , (req,res) => {
 
-  const sql = "select * from incident order by _id asc"
+  const sql = "select * from incident order by _id desc"
   db.query(sql, (err,result) => {
      if(err){
          res.status=400
@@ -623,7 +665,9 @@ app.get("/api/dbcategoryid" , (req,res) => {
          res.send("ERR")
      }else{
            res.status=200
-          res.send( result )  
+          res.send( result )
+          console.log("no last?")  
+          console.log( result )
      }
 
    })

@@ -91,6 +91,7 @@ const CategoryID =() =>{
             <tr>
             <td>label</td>
             <td>value</td>
+            <td>last</td>
             </tr>
            </thead>
         { categoryid?.map(
@@ -98,6 +99,7 @@ const CategoryID =() =>{
             <tr>
             <td>{d.label} </td>
             <td>{d.value} </td>
+            <td>{d.last} </td>
             </tr>  
             ) 
         }           

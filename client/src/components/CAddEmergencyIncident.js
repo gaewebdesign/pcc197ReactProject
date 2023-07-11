@@ -39,10 +39,10 @@ const CAddEmergencyIncident =  (props) =>
 
     const [name, setResourceName] = useState('default')
     const [date, setDate] = useState( '1/1/1900')
-    const [categoryid, setCategoryID] = useState( 99 )
+    const [categoryid, setCategoryID] = useState()
+    const [lastcat, setLastCat] = useState([ ] )
     const [description, setDescription] = useState(" not done")
 
-    const [lastcategoryindex, setLastCategoryIndex] = useState([])
 
     //  GET information from each Component
     const pullDate = (data)=>{  setDate(data) }  
@@ -56,22 +56,19 @@ const CAddEmergencyIncident =  (props) =>
     const url_addincident= CONSTANTS.url_addincident
        
     // Load the last category index table (C1,C2,C3,C4)
-    useEffect( ()=>{ fetcher() } ,[lastcategoryindex ])
+    // this is to get the last value
+    useEffect( ()=>{ fetcher() } ,[ ])
     function fetcher(){
-
-       Axios.get(CONSTANTS.url_lastcategoryindex)
+       let url = "http://localhost:3001/api/lastcat"
+     //  url = CONSTANTS.url_categoryid
+       Axios.get(url)
          .then(
               (response)=>{
-                   setLastCategoryIndex( response.data )
-                   console.log(" *** lastcategoryindex *** ")
-//                 array of 1 row
-
-                    console.log(" *** response.data  *** ")
-                    console.log( response.data)
-                    console.log(" *** response.data  *** ")
-
-                    console.log(lastcategoryindex[0])
-                   console.log(" *** lastcategoryindex *** ")
+                   setLastCat( response.data )
+                   console.log("* lastcat *************** ")
+                   console.log(lastcat)
+                   console.log( response.data)
+                   console.log("* lastcat *************** ")
                    
                 }
          ).catch(
@@ -94,38 +91,18 @@ const CAddEmergencyIncident =  (props) =>
    }
     const SubmitButton=(evt) => {
     
-        const email=""
-        const pass="" 
         //  NOTE: the keys are the same as the database 
         // the server side has to match (req.body.owner)
-        // do the resource id here, so it will be unique
-        let incidentid =  "C#-"+  random(1,23)
-        /*  TODO:  produce incidentid
-            C1-#,C2-#,C3-#,C4-#
-            and incremental #
-        */
+        let incidentid ="C"
+        let last = 0
+        lastcat?.map(
+            (option) => {
+                if(option.label== categoryid) last=option.last
+//              console.log(option.label + " -> " + option.value)
+            }
+        )
+        incidentid = "C"+categoryid + "-" + last
 
-         console.log( "lastcategoryindex ")            
-         console.log( lastcategoryindex)
-         console.log( "lastcategoryindex ")            
-
-         incidentid = "C" + categoryid +"-" 
-         if(categoryid == 1) {
-            incidentid += lastcategoryindex[0].cat1            
-        }else if( categoryid == 2){
-            incidentid += lastcategoryindex[0].cat2            
-        }else if( categoryid == 3){
-            incidentid += lastcategoryindex[0].cat3            
-        }else if( categoryid == 4){
-            incidentid += lastcategoryindex[0].cat4            
-        }else{
-            incidentid += "?"
-        }
-
-        console.log( url_addincident)
-        console.log(" ** incidentid " )
-        console.log( incidentid)
-        console.log("    incidentid **" )
         Axios.post(url_addincident,{
           ownerid: ownerid,
           categoryid: categoryid,
@@ -141,15 +118,19 @@ const CAddEmergencyIncident =  (props) =>
      
         )
 
+        console.log("*** *** ")
+        console.log(CONSTANTS.url_lastcat_increment)
+        console.log("category_id: " + categoryid)
+        console.log("*** *** ")
+
         // Increment the last value for index C1,C2,C3,C4
-        Axios.post( CONSTANTS.url_lastcategoryincrement,{
-            index: categoryid
+        Axios.post(CONSTANTS.url_lastcat_increment ,{
+            label: categoryid
         })
         .then(
             console.log("good")
         ).catch(
-            (error) => {  alert("Data " + CONSTANTS.url_lastcategoryindex + error)   }
-
+            (error) => {  alert("Data " + CONSTANTS.url_lastcat_increment + error)   }
         )
 
 
