@@ -9,9 +9,9 @@ VALUES
 
 INSERT INTO `resourceid` 
 VALUES
-(NULL,'10',"Oceanography"),
-(NULL,'12','NASA Aeronautics'),
-(NULL,'33','Aquatics')
+(NULL,10,"Oceanography"),
+(NULL,12,'NASA Aeronautics'),
+(NULL,33,'Aquatics')
 ;
 
 INSERT INTO `categoryid` 

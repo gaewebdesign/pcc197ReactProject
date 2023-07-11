@@ -114,7 +114,7 @@ VALUES
 DROP TABLE IF EXISTS `resourceid`;
 CREATE TABLE `resourceid` (
   `_id` int NOT NULL AUTO_INCREMENT,
-  `label` varchar(50) UNIQUE DEFAULT NULL,
+  `label` INT UNIQUE DEFAULT NULL,
   `value` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
@@ -122,12 +122,12 @@ CREATE TABLE `resourceid` (
 alter table `resourceid` AUTO_INCREMENT=1;
 
 INSERT INTO `resourceid` 
-VALUES (NULL,'1','-Transportation'),
-(NULL,'2','-Communications'),
-(NULL,'3','-Engineering'),
-(NULL,'4','-Search and Rescue'),
-(NULL,'5','-Education'),
-(NULL,'6','-Energy');
+VALUES (NULL,1,'-Transportation'),
+(NULL,2,'-Communications'),
+(NULL,3,'-Engineering'),
+(NULL,4,'-Search and Rescue'),
+(NULL,5,'-Education'),
+(NULL,6,'-Energy');
 
 
 CREATE TABLE `categoryid` (
