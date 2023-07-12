@@ -118,18 +118,36 @@ const CResourceReport = (props) =>{
            </thead>
         { resource?.map(
             
-            (d) =>
+            (d) => (
                <tr>
                  <td>{d.ownerid} </td>
                  <td>{d.count } </td>
                  <td>{ResourceValue(d.prime)} </td>
                </tr>  
-               
+
+              )
+             
             ) 
             
         }           
 
         </table>
+        {
+
+             resource?.map(
+                (d) => {
+                    xtotal += d.count
+
+                }
+
+             )
+
+
+          
+        }
+        
+        {xtotal}        
+
         <p/>
         <hr/>
         </div> 
