@@ -15,12 +15,6 @@ const CPopUpAppend = (props) => {
 
      const [ menu2, setMenu2] = useState(empty)
 
-
-/*     
-     "http://localhost:3001/test/resource"     
-     "http://localhost:3001/test/category"     
-
- */
      useEffect( ()=>{ fetcher() } ,[ ])
      props.func(selected)
 
@@ -40,13 +34,19 @@ const CPopUpAppend = (props) => {
       }  
 
       const handleChange = (evt)=> {
-         
-          setMenu( menu2)
+          evt.preventDefault();
+
           setSelected ( evt.target.value )
           console.log( evt.target.value)
    
      }
-  return (
+///onMouseDown = {handleMouseDown}
+     const handleMouseDown = (evt) => {
+          //evt.preventDefault();
+          setMenu( menu2)
+     }
+
+     return (
         <div>
     
         <div class="container-sm Function">
@@ -55,7 +55,8 @@ const CPopUpAppend = (props) => {
         <div class="col-sm-8">
         <select
            onChange = {handleChange}
-           onMouseDown = {handleChange}
+           onMouseDown = {handleMouseDown}
+
         >
         {
                 menu.map(

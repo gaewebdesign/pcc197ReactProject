@@ -36,9 +36,8 @@ const CSearch =  (props) =>
     // the owner can be identified by ownerid or name
     const owner = props.logger.name
 
-    const [keyword, setKeyword] = useState( '9keyword')
+    const [keyword, setKeyword] = useState( '9')
     const [primaryfunctionid, setPrimaryFunctionID] = useState( 9 )
-    const [incident, setIncident] = useState( 9)
     const [distance, setDistance] = useState( 9 )
 
 //  GET information from each Component
@@ -120,6 +119,7 @@ const CSearch =  (props) =>
                 <td>Resource ID</td>
                 <td>Resource Name</td>
                 <td>Owner</td>
+                <td>Primary ID</td>
                 <td>Cost/Unit</td>
                 <td>Distance</td>
                 </tr>
@@ -131,6 +131,7 @@ const CSearch =  (props) =>
                 <td>{d.resourceid} </td>
                 <td>{d.name} </td>
                 <td>{OwnerIdName(d.ownerid)} </td>
+                <td>{d.prime}</td>
                 <td>{d.cost} /                                
                 {toUnits(d.unit)} </td>                                
                 <td>{d.dist}</td>
@@ -171,7 +172,7 @@ const CSearch =  (props) =>
                         <div class= "col-sm-3">
                         <button type="button" 
                             class="btn btn-primary"
-                            onClick = {props.SubmitButton}
+                            onClick = {props.Searcher}
                              >{props.search}</button>
                         </div>
   
@@ -186,22 +187,26 @@ const CSearch =  (props) =>
         window.history.back()
     }
 
-    const SubmitButton=(evt) => {
+
+    const Searcher=(evt) => {
     
         console.log( url_search)
-        const search = "(" + keyword + ")," + pullPrimaryFunctionID + "," + incident + ", " + distance
-//      alert("search:" + search )
+
+        // primaryfunctionid is pulled from the component
+        let search = "(" + keyword + "),(menu:" + primaryfunctionid + "),(dist)"  + distance
+        alert("search:" + search )
         
         Axios.post(url_search,{
           
           keyword: keyword,
           primaryf: primaryfunctionid,
-          incident: incident,
+//        incident: incident,
           distance: distance
+
         } )
         .then(
            (response) => {  
-            alert("Data entered: " + response.status)
+//          alert("Data entered: " + response.status)
             console.log( response.data)
             setSearchResults( response.data )
         }
@@ -241,7 +246,7 @@ const CSearch =  (props) =>
 
        <p/>
        <hr/>
-       <CSubmit cancel="Cancel" search="Search" SubmitBotton={SubmitButton} CancelButton={CancelButton}/>
+       <CSubmit cancel="Cancel" search="Search" Searcher={Searcher} CancelButton={CancelButton}/>
      
        <hr/>
        <Results />

@@ -16,9 +16,9 @@ VALUES
 
 INSERT INTO `categoryid` 
 VALUES
-(NULL,11,"hurricane , stay home"),
-(NULL,13,'earthquake , shelter in place'),
-(NULL,23,'tornado , shelter in place')
+(NULL,11,"hurricane , stay home",   1),
+(NULL,13,'earthquake , shelter in place',1),
+(NULL,23,'tornado , shelter in place',1)
 ;
 
 
