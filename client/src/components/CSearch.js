@@ -11,6 +11,7 @@ import "./Component.css"
 */
 import {CFormInput} from "./CFormInput.js"
 import {CPopUp} from './CPopUp.js'
+import {CPopUpAppend} from './CPopUpAppend.js'
 
 
 import Axios  from 'axios';
@@ -232,7 +233,7 @@ const CSearch =  (props) =>
       </div>
        
       <CFormInput name="-Keyword" id="keyword"  func={pullKeyword}/>       
-      <CPopUp name="-Primary Function" url={url_resourceid}  func = {pullPrimaryFunctionID} />
+      <CPopUpAppend name="-Primary Function" url={url_resourceid}  func = {pullPrimaryFunctionID} />
 {/*
       <CFormInput name="-Incident" func={pullIncidentID}/>
 */}
