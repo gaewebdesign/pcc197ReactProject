@@ -21,7 +21,7 @@ const CResourceReport = (props) =>{
 
     useEffect( () => { fetcher()} , [])
     useEffect( () => {fetchResourceID()} , { } )
-    useEffect( () => {total()} , []  )
+
 
     const url = CONSTANTS.url_resourcereport
     const url_resourceid = CONSTANTS.url_resourceid
@@ -58,16 +58,6 @@ const CResourceReport = (props) =>{
   
       } 
 
-      function total( ){
-        let x=0
-        resource?.map(
-          (d) =>  
-               x += d.count
-        )
-        setCount(x)
-
-      }
-
 
       // return[ resourceID
       function fetchResourceID(){
@@ -103,6 +93,13 @@ const CResourceReport = (props) =>{
            )
 
       }
+      let xtotal=0
+/*
+      resource?.map(
+          (d) => (xtotal += d.count)
+
+      )
+*/
       return(
         <div>
         <center/>
@@ -127,23 +124,26 @@ const CResourceReport = (props) =>{
 
             </tr>
            </thead>
+
+           
         { 
            
           resource?.map(
             
-            (d) =>
+            (d) =>{
                <tr>
                  <td>{d.ownerid} </td>
                  <td>{d.count } </td>
                  <td>{ResourceValue(d.prime)} </td>
                </tr>  
-
+               {xtotal += d.count}
+              }
             ) 
             
         }           
         
         </table>
-         <h1> {count} </h1>
+        <h1> {xtotal} </h1>
         <p/>
         <hr/>
         </div> 
