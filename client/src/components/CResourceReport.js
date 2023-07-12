@@ -131,7 +131,7 @@ const CResourceReport = (props) =>{
             
         }           
 
-        </table>
+        
         {
 
              resource?.map(
@@ -141,13 +141,19 @@ const CResourceReport = (props) =>{
                 }
 
              )
-
-
           
         }
+        <tr>.                 .</tr>
+        <tr>
+        <td> {theOwnerID}     </td>
+        <td> {xtotal}     </td>
+        <td>  Total    </td>
+        </tr>
         
-        {xtotal}        
-
+        </table>        
+        
+        
+        
         <p/>
         <hr/>
         </div> 
