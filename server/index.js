@@ -296,7 +296,7 @@ app.post('/api/addresource' , (req,res )=>{
 
      if(keyword) sql += " and description like " + wrap(keyword)
      if(distance) sql += " and dist <= " + distance 
-     if(primaryf) sql += " and prime= " + primaryf 
+     if(primaryf>0) sql += " and prime= " + primaryf 
 
  //    sql += " limit 5"
      console.log("*************")
@@ -352,7 +352,10 @@ app.post('/api/addresource' , (req,res )=>{
         // ver 3 return using ownerid
         sql = "select r.ownerid,r.prime, COUNT(r.prime) as count from resource  r join resourceid c on r.prime = c.label where ownerid = " + ownerid + " group by r.ownerid ,r.prime order by r.prime"
         
+        console.log( "**********************************")
         console.log( "SQL:" + sql)
+        console.log( "**********************************")
+
         db.query( sql ,(err, result, field)=>{
                 
             if(err){

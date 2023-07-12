@@ -11,11 +11,12 @@ const empty = [
 const CPopUpAppend = (props) => {
 
      const [ menu, setMenu] = useState(empty)
-     const [ selected ,setSelected]  = useState(0)
+     const [ selected ,setSelected]  = useState(-1)
 
      const [ menu2, setMenu2] = useState(empty)
 
      useEffect( ()=>{ fetcher() } ,[ ])
+
      props.func(selected)
 
      function fetcher(){
@@ -24,7 +25,7 @@ const CPopUpAppend = (props) => {
           .then(
                (response)=>{
                     setMenu2( response.data )
-                    setSelected( response.data.length )
+                   // setSelected( response.data.length )
                }
           ).catch(
  

@@ -18,8 +18,6 @@ import Axios  from 'axios';
  
 import * as CONSTANTS from '../pages/Constants.js'
 
-import { useAxiosHook } from '../hooks/useAxiosHook.js';
-import { useAxiosHook2 } from '../hooks/useAxiosHook2.js';
 
 const url_search = CONSTANTS.url_search
 const url_resourceid = CONSTANTS.url_resourceid
@@ -31,14 +29,14 @@ const url_resourceid = CONSTANTS.url_resourceid
 const CSearch =  (props) =>
 {
 
-    const ownerid = 999 // props.logger.name // "89999"
+//    const ownerid = 999 // props.logger.name // "89999"
     // used just for display purpose
     // the owner can be identified by ownerid or name
-    const owner = props.logger.name
+//    const owner = props.logger.name
 
-    const [keyword, setKeyword] = useState( '9')
-    const [primaryfunctionid, setPrimaryFunctionID] = useState( 9 )
-    const [distance, setDistance] = useState( 9 )
+    const [keyword, setKeyword] = useState( '-9')
+    const [primaryfunctionid, setPrimaryFunctionID] = useState( -1 )
+    const [distance, setDistance] = useState( 99 )
 
 //  GET information from each Component
     const pullKeyword = (data)=>{  setKeyword(data) }  
