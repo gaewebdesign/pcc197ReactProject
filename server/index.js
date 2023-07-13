@@ -294,7 +294,14 @@ app.post('/api/addresource' , (req,res )=>{
 //    select all... followed by and clauses
       let sql = "select * from resource where _id>=1 "
 
-     if(keyword) sql += " and description like " + wrap(keyword)
+     if(keyword) {
+      sql += "and "
+      sql += "( description like " + wrap(keyword)
+      sql += " or cap like " + wrap(keyword)
+      sql += " or name like " + wrap(keyword)
+      sql += ")"
+
+    }     
      if(distance) sql += " and dist <= " + distance 
      if(primaryf>0) sql += " and prime= " + primaryf 
 

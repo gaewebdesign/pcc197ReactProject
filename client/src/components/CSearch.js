@@ -18,6 +18,7 @@ import Axios  from 'axios';
  
 import * as CONSTANTS from '../pages/Constants.js'
 
+import "../pages/Page.css"
 
 const url_search = CONSTANTS.url_search
 const url_resourceid = CONSTANTS.url_resourceid
@@ -118,6 +119,8 @@ const CSearch =  (props) =>
                 <td>Resource Name</td>
                 <td>Owner</td>
                 <td>Primary ID</td>
+                <td>Description</td>
+                <td>Capabilities</td>
                 <td>Cost/Unit</td>
                 <td>Distance</td>
                 </tr>
@@ -130,6 +133,8 @@ const CSearch =  (props) =>
                 <td>{d.name} </td>
                 <td>{OwnerIdName(d.ownerid)} </td>
                 <td>{d.prime}</td>
+                <td>{d.description}</td>
+                <td>{d.cap}</td>
                 <td>{d.cost} /                                
                 {toUnits(d.unit)} </td>                                
                 <td>{d.dist}</td>
@@ -192,7 +197,7 @@ const CSearch =  (props) =>
 
         // primaryfunctionid is pulled from the component
         let search = "(" + keyword + "),(menu:" + primaryfunctionid + "),(dist)"  + distance
-        alert("search:" + search )
+       // alert("search:" + search )
         
         Axios.post(url_search,{
           
@@ -219,7 +224,11 @@ const CSearch =  (props) =>
      <div>
 
        <p/>
-       
+       <span class="BlueNote">
+
+       Searching for : keyword:{keyword} primary function:{ primaryfunctionid } distance: &lt; { distance}
+       </span>
+
        <div class="container-sm Function">
 
         <div class="row">
