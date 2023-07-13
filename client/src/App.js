@@ -43,6 +43,7 @@ import {TestUnitCostComponent} from './test/TestUnitCostComponent.js'
 import {TestDefaultSelect}  from './test/TestDefaultSelect.js'
 import {TestJWT}  from './test/TestJWT.js'
 import {TestAxiosHook}  from './test/TestAxiosHook.js'
+import {TestResourceReport}  from './test/TestResourceReport.js'
 
 /*
 https://blog.logrocket.com/react-router-v6-guide/
@@ -262,7 +263,8 @@ const TestRoutines = () =>{
                     <li><Link to="/test5"> Test Unit Cost Component </Link></li>
                     <li><Link to="/test6"> Test Default Menu Select </Link></li>
                     <li><Link to="/test7"> Test JWT </Link></li>
-                    <li><Link to="/test8"> Test Axios Hook </Link></li>
+                    <li><Link to="/test8"> Test Resource Report </Link></li>
+                    <li><Link to="/test9"> Test Axios Hook </Link></li>
                   </div>                  
      
          )
@@ -416,6 +418,7 @@ const LoggedInStrip = (props) => {
               <Route path="/test5"  element={<TestUnitCostComponent />} />
               <Route path="/test6"  element={<TestDefaultSelect />} />              
               <Route path="/test7"  element={<TestJWT />} />
+              <Route path="/test8"  element={<TestResourceReport />} />
               <Route path="/test8"  element={<TestAxiosHook />} />
 
               </Routes>
