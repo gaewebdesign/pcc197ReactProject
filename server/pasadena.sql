@@ -38,11 +38,11 @@ update lastcategoryindex set cat2 = cat2+1;
 update lastcategoryindex set cat3 = cat3+1;
 update lastcategoryindex set cat4 = cat4+1;
 
-
-
 CREATE TABLE `logger` (
   `_id` int NOT NULL AUTO_INCREMENT,
   `ownerid` int NOT NULL,
+  `user` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
   `epoch` varchar(50) NOT NULL,
   PRIMARY KEY (`_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
@@ -51,7 +51,7 @@ alter table `logger` AUTO_INCREMENT=1;
 
 INSERT INTO `logger` 
 VALUES
-(NULL,0,"1688460876815")
+(NULL,0,'usr','name',"1688460876815")
 ;
 
 CREATE TABLE `user` (

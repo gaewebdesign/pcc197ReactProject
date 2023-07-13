@@ -39,8 +39,10 @@ const LoggerPage = () => {
                <thead>
                 <tr>
                 <td>ownerid</td>
+                <td>user</td>
+                <td>name</td>
                 <td>epoch</td>
-                <td>[ date ] </td>
+                <td>[login date] </td>
                 </tr>
                </thead>
             { dbTable?.map(
@@ -48,6 +50,8 @@ const LoggerPage = () => {
                 (d) =>
                 <tr>
                 <td>{d.ownerid} </td>
+                <td>{d.user} </td>
+                <td>{d.name} </td>
                 <td>{d.epoch} </td>
                 <td>{epochtodate(d.epoch)} </td>
                 </tr>  

@@ -36,9 +36,13 @@ asValue = (_v) => { return  _v }
 
 app.post("/api/logger", (req,res)=>{
      const ownerid= req.body.ownerid
+     const user = req.body.user
+     const name = req.body.name
      const epoch= req.body.epoch
-     let sql = "insert into logger(ownerid,epoch) values("
+     let sql = "insert into logger(ownerid,user,name,epoch) values("
      sql += quotes( ownerid) + ","
+     sql += quotes( user) + ","
+     sql += quotes( name) + ","
      sql += quotes( epoch) + ")"
 
      console.log( sql)
