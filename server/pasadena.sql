@@ -214,8 +214,8 @@ CREATE TABLE `incident` (
   `ownerid` INT DEFAULT NULL,
   `categoryid` INT DEFAULT NULL,
   `incidentid` varchar(50) DEFAULT NULL,
-  `idate` varchar(50) DEFAULT NULL,
-  `description` varchar(50)  DEFAULT NULL,
+  `idate` varchar(50) NOT NULL,
+  `description` varchar(50)  NOT NULL,
   PRIMARY KEY (`_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
