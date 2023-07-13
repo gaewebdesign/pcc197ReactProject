@@ -159,7 +159,7 @@ CREATE TABLE `resource` (
   `secondary` INT DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
   `cap` varchar(50) DEFAULT NULL,
-  `dist` INT DEFAULT NULL,
+  `dist` DECIMAL(20,5) DEFAULT NULL,
   `cost` DECIMAL(20,5) DEFAULT NULL,
   `unit` INT DEFAULT NULL,
   
@@ -171,13 +171,13 @@ alter table `resource` AUTO_INCREMENT=1;
 insert into `resource`
 (resourceid,ownerid,name,prime,secondary,description,cap,dist,cost,unit)
 VALUES
-("1687732320322",1001,"Accident March 1",1,3,"D: Coloraro Blvd","C: Police",10,1, 1),
-("1687732316322",1001,"Accident March 2",2,1,"D: Allen Ave","C: Police",10,1, 2),
-("1687732026322",1001,"Accident March 3",3,1,"D: Sierra ","C: Police",10,2, 3),
+("1687732320322",1001,"Accident March 1",1,3,"D: Coloraro Blvd","C: Police",10.2,1, 1),
+("1687732316322",1001,"Accident March 2",2,1,"D: Allen Ave","C: Police",10.3,1, 2),
+("1687732026322",1001,"Accident March 3",3,1,"D: Sierra ","C: Police",10.4,2, 3),
 
-("1687732420332",1002,"Theft March 1",1,3,"D: Coloraro Blvd","C: Police",10,1, 2),
-("1687732516342",1002,"Theft March 2",2,1,"D: Allen Ave","C: Police",10,1, 2),
-("1687732626352",1002,"Theft March 3",3,1,"D: Sierra ","C: Police",10,2, 2),
+("1687732420332",1002,"Theft March 1",1,3,"D: Coloraro Blvd","C: Police",10.5,1, 2),
+("1687732516342",1002,"Theft March 2",2,1,"D: Allen Ave","C: Police",10.6,1, 2),
+("1687732626352",1002,"Theft March 3",3,1,"D: Sierra ","C: Police",10.7,2, 2),
 
 ("1687731020332",2002,"Lost March 1",1,3,"D: 15 College Ave","C: Police",10,1, 3),
 ("1687732517342",2002,"Lost March 2",2,1,"D: 16 Yosemite","C: Police",10,1, 2),
