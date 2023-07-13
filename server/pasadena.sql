@@ -159,8 +159,8 @@ CREATE TABLE `resource` (
   `secondary` INT DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
   `cap` varchar(50) DEFAULT NULL,
-  `dist` DECIMAL(20,5) DEFAULT NULL,
-  `cost` DECIMAL(20,5) DEFAULT NULL,
+  `dist` DECIMAL(20,5) NOT NULL,
+  `cost` DECIMAL(20,5) NOT NULL,
   `unit` INT DEFAULT NULL,
   
   PRIMARY KEY (`_id`)
