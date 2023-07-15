@@ -297,7 +297,7 @@ app.post('/api/addresource' , (req,res )=>{
       const wrap = (d) => "\"%" + d + "%\""
 
 //    select all... followed by and clauses
-      let sql = "select * from resource where _id>=1 "
+      let sql = "select * from resource where _id>1"
 
      if(keyword) {
       sql += "and "
@@ -310,7 +310,10 @@ app.post('/api/addresource' , (req,res )=>{
      if(distance) sql += " and dist <= " + distance 
      if(primaryf>0) sql += " and prime= " + primaryf 
 
-     if(epoch>946709935) sql += " and resourceid> " + epoch 
+    // if(epoch>946709935) sql += " and resourceid> " + epoch 
+     
+     sql += " order by resourceid desc "
+     
 
  //    sql += " limit 5"
      console.log("*************")
