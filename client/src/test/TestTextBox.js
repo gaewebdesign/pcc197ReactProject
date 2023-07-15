@@ -39,9 +39,14 @@ const TestTestBox = () => {
 
    const [ user, setUser] = useState(" (user) ")
    const [ name, setName] = useState(" (name) ")
-   const [ roleid, setRoleID] = useState(0)
+   const [ roleid, setRoleID] = useState(1)
    const [ pass, setPass] = useState(" (password)")
    const [ email, setEmail] = useState(" (email)")
+   const [ address, setAddress] = useState(" (address)")
+   const [ city, setCity] = useState(" Pasadena")
+   const [ state, setState] = useState(" CA")
+   const [ zip, setZip] = useState(" 93232")
+   const [ phone, setPhone] = useState(" 818-223-1231" )
 
    const[  dbUsers , setDBUsers] = useState([])
    const[  roleMenu , setRoleMenu] = useState([])
@@ -49,9 +54,12 @@ const TestTestBox = () => {
    const onUser = (evt)=>{ setUser( evt.target.value) }
    const onRole = (evt)=>{ setRoleID( evt.target.value) }
    const onName = (evt)=>{ setName( evt.target.value)}
-   const onEmail = (evt)=>{ setEmail( evt.target.value) }
    const onPassword = (evt)=>{ setPass( evt.target.value) }
-
+   const onEmail = (evt)=>{ setEmail( evt.target.value) }
+   const onAddress = (evt)=>{ setAddress( evt.target.value) }
+   const onCity = (evt)=>{ setCity( evt.target.value) }
+   const onState = (evt)=>{ setState( evt.target.value) }
+   const onZip = (evt)=>{ setZip( evt.target.value) }
 
    function  fetcher(){
       Axios.get(CONSTANTS.url_getusers)
@@ -184,6 +192,39 @@ const TestTestBox = () => {
                  ></input>
                  </div>
 
+                 <div class="form-group">
+                 <label >Address</label>
+                 <input 
+                     type="text"
+                     onChange = {onAddress}
+                 ></input>
+                 </div>
+
+                 <div class="form-group">
+                 <label >City</label>
+                 <input 
+                     type="text"
+                     onChange = {onCity}
+                 ></input>
+                 </div>
+
+                 <div class="form-group">
+                 <label >State</label>
+                 <input 
+                     type="text"
+                     onChange = {onState}
+                 ></input>
+                 </div>
+
+                 <div class="form-group">
+                 <label >Zip</label>
+                 <input 
+                     type="text"
+                     onChange = {onZip}
+                 ></input>
+                 </div>
+
+                 <hr/>
                  <button
                        type="button"
                        class="btn btn-primary"
@@ -200,7 +241,9 @@ const TestTestBox = () => {
                  <br/>
                  <p/>
                  {ownerid}<br/>
-                 {user} &nbsp; {name} &nbsp; {email} &nbsp; {pass}
+                 {user} &nbsp; {name} &nbsp; {email} &nbsp; {pass} <br/>
+                 {address} &nbsp; {city} &nbsp; {state} &nbsp; {zip} <br/>
+                 {phone}
 
                  <p/>
                  <b>This is from user table </b>
