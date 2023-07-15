@@ -91,6 +91,32 @@ const CResourceReport = (props) =>{
 
       }
 
+      // create menu with count=0
+      // then fill the actual count values
+      // theOwnerID is hard-coded for this test case
+      // menu.push({ ownerid:ownerid, prime:d.label , count:0   })
+      let menu = []
+                 resourceid?.map(
+             (d) => {
+                   menu.push( {ownerid:theOwnerID ,prime: d.label , count:0} )
+             }             )
+
+
+//    map through the resources and if theres a match, add the count
+      resource?.map(
+           (d) => {
+                console.log( d.ownerid , d.prime , d.count)
+                 try{
+                       menu.find( v => v.prime == d.prime  ).count=d.count     
+                     }catch(err){
+                       console.log( "no prime")
+      
+                     }
+      
+                  }
+      
+          )
+
       let xtotal=0
       return(
         <div>
@@ -116,7 +142,7 @@ const CResourceReport = (props) =>{
 
             </tr>
            </thead>
-        { resource?.map(
+        { menu?.map(
             
             (d) => (
                <tr>
@@ -133,8 +159,7 @@ const CResourceReport = (props) =>{
 
         
         {
-
-             resource?.map(
+           menu?.map(
                 (d) => {
                     xtotal += d.count
 
