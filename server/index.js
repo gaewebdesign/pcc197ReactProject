@@ -297,9 +297,9 @@ app.post('/api/addresource' , (req,res )=>{
       const wrap = (d) => "\"%" + d + "%\""
 
 //    select all... followed by and clauses
-      let sql = "select * from resource where resourceid>" + epoch
+      let sql = "select * from resource where resourceid>" + epoch + " "
       if(epoch){
-        sql = "select * from resource where resourceid>" + epoch
+        sql = "select * from resource where resourceid>" + epoch + " "
 
       }else{
         sql = "select * from resource where _id > 0 "
