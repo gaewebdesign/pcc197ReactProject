@@ -1,6 +1,8 @@
 import {React,useState, useEffect} from 'react'
 
- 
+import "react-datepicker/dist/react-datepicker.css";
+import "react-datepicker/dist/react-datepicker.css";
+
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
@@ -13,6 +15,7 @@ import {CFormInput} from "./CFormInput.js"
 import {CPopUp} from './CPopUp.js'
 import {CPopUpAppend} from './CPopUpAppend.js'
 
+import { CDatePicker } from './CDatePicker.js';
 
 import Axios  from 'axios';
  
@@ -39,12 +42,17 @@ const CSearch =  (props) =>
     const [primaryfunctionid, setPrimaryFunctionID] = useState( -1 )
     const [distance, setDistance] = useState( 99 )
 
+    const [epochDate ,    setEpochDate ] = useState( 999999 )
+
 //  GET information from each Component
     const pullKeyword = (data)=>{  setKeyword(data) }  
     const pullPrimaryFunctionID = (data)=>{  setPrimaryFunctionID(data) }
    // const pullIncidentID = (data)=>{  setPrimaryFunction(data) }
     const pullDistance = (data)=>{  setDistance(data) }
     
+    const pullEpochDate = (data)=>{  setEpochDate(data) }
+
+
     const [searchResults , setSearchResults] = useState ([])        
     
 
@@ -204,6 +212,7 @@ const CSearch =  (props) =>
           keyword: keyword,
           primaryf: primaryfunctionid,
 //        incident: incident,
+          epoch: epochDate,
           distance: distance
 
         } )
@@ -249,6 +258,7 @@ const CSearch =  (props) =>
 {/*
       <CFormInput name="-Incident" func={pullIncidentID}/>
 */}
+      <CDatePicker name = "-After date " func={pullEpochDate}/>
       <CFormInput name="-Distance" func={pullDistance}/>
 
        <p/>
