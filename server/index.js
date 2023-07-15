@@ -298,7 +298,13 @@ app.post('/api/addresource' , (req,res )=>{
 
 //    select all... followed by and clauses
       let sql = "select * from resource where resourceid>" + epoch
+      if(epoch){
+        sql = "select * from resource where resourceid>" + epoch
 
+      }else{
+        sql = "select * from resource where _id > 0 "
+
+      }
      if(keyword) {
       sql += "and "
       sql += "( description like " + wrap(keyword)
