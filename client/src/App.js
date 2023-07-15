@@ -350,21 +350,59 @@ const LoggedInStrip = (props) => {
   const CIMTStrip = (props) => {
     /*
        CIMT Users: phone number
-       Resource Provides: US Postal Address
+       Resource Provider: US Postal Address
        System Admin: email
     */
+    const [roles, setRoles] = useState()
 
-    // TODO allow for additional roles
-    let info = <div>Unknown Role</div>
-    if(props.logger.roleid==1){
-      info= <div>{props.logger.name}<br/>{props.logger.phone}<br/>CIMT User<br/></div>
-    }else if(props.logger.roleid==2){
-      info= <div>{props.logger.name}<br/>{props.logger.address}<br/>
-      {props.logger.city}<br/>{props.logger.state}&nbsp;{props.logger.zip}<br/>Resource Provider<br/></div>
-    }else if(props.logger.roleid==3){
-      info= <div>{props.logger.name}<br/>{props.logger.email}<br/>Admin<br/></div>           
+    useEffect( () => {fetcher() }, [])
+
+    function fetcher(){
+
+      Axios.get(CONSTANTS.url_roleid)
+        .then(
+             (response)=>{
+                  console.log( response.data)
+                  setRoles( response.data )
+             }
+        ).catch(
+
+            (response) => { alert(response)}
+        )          
+
     }
-      
+
+    let roleid = props.logger.roleid
+    let name = props.logger.name
+    let phone = props.logger.phone
+    let email = props.logger.email
+    let address = props.logger.address
+    let city = props.logger.city
+    let state = props.logger.state
+    let zip = props.logger.zip
+    
+
+    let roleValue
+    try{
+        let r = roles.find( v => v.label == roleid )
+        roleValue= r.value
+    }catch{
+        console.log("** ERR in getting role.value ***")
+    }
+    console.log( " *** roleID ****")
+
+    let info=" "
+    if(name)      info = <span>{name}<br/></span>
+    if(roleid==3 && email!=null)   info = <span>{info}<br/>{email} </span>
+    if(roleid==2 && address!=null)   info = <span>{info}<br/>{address} </span>
+    if(roleid==2 && city!=null)      info = <span>{info}<br/>{city} </span>
+    if(roleid==2 && state!=null)      info = <span>{info}&nbsp;{state} </span>
+    if(roleid==2 && zip!=null)      info = <span>{info}&nbsp;{zip} <br/> </span>
+    if(roleid==1 && phone!=null)      info = <span>{info}&nbsp;{phone}<br/> </span>
+    
+    
+    info = <span>{info}&nbsp;{roleValue} </span>
+
     return(
       <div>
           <div class="container-sm CIMTStrip">
