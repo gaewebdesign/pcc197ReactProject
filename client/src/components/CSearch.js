@@ -44,7 +44,7 @@ const CSearch =  (props) =>
     const [primaryfunctionid, setPrimaryFunctionID] = useState( -1 )
     const [distance, setDistance] = useState( 99 )
 
-    const [epochDate ,    setEpochDate ] = useState( 999999 )
+    const [epochDate ,    setEpochDate ] = useState(946709935 )
 
 //  GET information from each Component
     const pullKeyword = (data)=>{  setKeyword(data) }  

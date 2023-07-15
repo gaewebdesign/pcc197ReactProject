@@ -9,8 +9,11 @@ import "react-datepicker/dist/react-datepicker.css";
 const CDatePicker = (props) => {
 
 //    const [startDate, setStartDate] = useState( " "  )
-    const [startDate, setStartDate] = useState(new Date()  )
+    var date = new Date(); 
+    date.setFullYear(date.getFullYear() - 23);
+    const [startDate, setStartDate] = useState( date   )
     const [epochDate, setEpochDate] = useState(new Date().getTime()  )
+
 
 
     const changeDate = (date)=> {
