@@ -297,7 +297,7 @@ app.post('/api/addresource' , (req,res )=>{
       const wrap = (d) => "\"%" + d + "%\""
 
 //    select all... followed by and clauses
-      let sql = "select * from resource where _id>1"
+      let sql = "select * from resource where resourceid>" + epoch
 
      if(keyword) {
       sql += "and "
