@@ -22,6 +22,10 @@ import {useState, useEffect} from 'react'
 
 import * as CONSTANTS from '../pages/Constants.js'
 
+import '../pages/Page.css'
+
+
+
 const url=CONSTANTS.url_insertuser // "http://localhost:3001/api/insertuser"
 
 
@@ -43,10 +47,11 @@ const TestTestBox = () => {
    const [ pass, setPass] = useState(" (password)")
    const [ email, setEmail] = useState(" (email)")
    const [ address, setAddress] = useState(" (address)")
-   const [ city, setCity] = useState(" Pasadena")
-   const [ state, setState] = useState(" CA")
-   const [ zip, setZip] = useState(" 93232")
-   const [ phone, setPhone] = useState(" 818-223-1231" )
+   const [ phone, setPhone] = useState(" (phone)" )
+   const [ city, setCity] = useState(" (city)")
+   const [ state, setState] = useState(" (state)")
+   const [ zip, setZip] = useState(" (zip)")
+
 
    const[  dbUsers , setDBUsers] = useState([])
    const[  roleMenu , setRoleMenu] = useState([])
@@ -56,6 +61,7 @@ const TestTestBox = () => {
    const onName = (evt)=>{ setName( evt.target.value)}
    const onPassword = (evt)=>{ setPass( evt.target.value) }
    const onEmail = (evt)=>{ setEmail( evt.target.value) }
+   const onPhone = (evt)=>{ setPhone( evt.target.value) }
    const onAddress = (evt)=>{ setAddress( evt.target.value) }
    const onCity = (evt)=>{ setCity( evt.target.value) }
    const onState = (evt)=>{ setState( evt.target.value) }
@@ -168,7 +174,6 @@ const TestTestBox = () => {
                  <label >Name:</label>
                  <input 
                      type="text"
-                     id="name"
                      onChange = {onName}
                  ></input>
                  </div>
@@ -177,20 +182,27 @@ const TestTestBox = () => {
                  <label> Email:</label>
                  <input 
                      type="email"
-                     id="email"
                      onChange = {onEmail}
                  ></input>
                  </div>
-
 
                  <div class="form-group">
                  <label >Password:</label>
                  <input 
                      type="password"
-                     id="password"
                      onChange = {onPassword}
                  ></input>
                  </div>
+
+                 <div class="form-group">
+                 <label >Phone</label>
+                 <input 
+                     type="text"
+                     onChange = {onPhone}
+                 ></input>
+                 </div>
+
+
 
                  <div class="form-group">
                  <label >Address</label>
