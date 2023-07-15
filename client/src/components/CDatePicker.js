@@ -10,9 +10,10 @@ const CDatePicker = (props) => {
 
 //    const [startDate, setStartDate] = useState( " "  )
     var date = new Date(); 
-    date.setFullYear(date.getFullYear() - 23);
-    const [startDate, setStartDate] = useState( date   )
-    const [epochDate, setEpochDate] = useState(new Date().getTime()  )
+    date.setFullYear(date.getFullYear() - 33);
+    const [startDate, setStartDate] = useState( )
+//  const [epochDate, setEpochDate] = useState(new Date().getTime()  )
+    const [epochDate, setEpochDate] = useState( )
 
 
 
@@ -26,7 +27,7 @@ const CDatePicker = (props) => {
 
     // returning epochDate to parent
     props.func(epochDate)
-    
+    const empty =""
     return (
         <div>
     
@@ -35,7 +36,8 @@ const CDatePicker = (props) => {
         <div class="col-sm-4" > <b>{props.name} </b> </div>
         <div class="col-sm-8">
 
-        <DatePicker selected={startDate}  onChange={changeDate}/>
+        <DatePicker placeholderText={empty} selected={startDate}  onChange={changeDate}/>
+
 
         </div>
         </div>
