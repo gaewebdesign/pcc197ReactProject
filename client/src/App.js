@@ -393,7 +393,7 @@ const LoggedInStrip = (props) => {
 
     let info=" "
     if(name)      info = <span>{name}<br/></span>
-    if(roleid==3 && email!=null)   info = <span>{info}<br/>{email} </span>
+    if(roleid==3 && email!=null)   info = <span>{info}<br/>{email}<br/> </span>
     if(roleid==2 && address!=null)   info = <span>{info}<br/>{address} </span>
     if(roleid==2 && city!=null)      info = <span>{info}<br/>{city} </span>
     if(roleid==2 && state!=null)      info = <span>{info}&nbsp;{state} </span>
