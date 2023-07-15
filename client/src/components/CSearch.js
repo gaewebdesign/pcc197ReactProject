@@ -21,6 +21,8 @@ import Axios  from 'axios';
  
 import * as CONSTANTS from '../pages/Constants.js'
 
+import {epochtodate} from '../library/library.js'
+
 import "../pages/Page.css"
 
 const url_search = CONSTANTS.url_search
@@ -124,6 +126,7 @@ const CSearch =  (props) =>
                <thead>
                 <tr>
                 <td>Resource ID</td>
+                <td>[Date]</td>
                 <td>Resource Name</td>
                 <td>Owner</td>
                 <td>Primary ID</td>
@@ -138,6 +141,7 @@ const CSearch =  (props) =>
                 (d) =>
                 <tr>
                 <td>{d.resourceid} </td>
+                <td>{epochtodate(d.resourceid)} </td>
                 <td>{d.name} </td>
                 <td>{OwnerIdName(d.ownerid)} </td>
                 <td>{d.prime}</td>
