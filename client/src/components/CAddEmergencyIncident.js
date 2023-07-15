@@ -11,6 +11,7 @@ import "./Component.css"
 import {CFormInput} from "./CFormInput.js"
 import {CPopUp} from './CPopUp.js'
 import {CUnitCost} from './CUnitCost.js'
+import {CDatePicker} from './CDatePicker.js'
 
 import Axios  from 'axios';
  
@@ -38,7 +39,7 @@ const CAddEmergencyIncident =  (props) =>
 
 
     const [name, setResourceName] = useState('default')
-    const [date, setDate] = useState( '1/1/1900')
+    const [date, setDate] = useState( )
     const [categoryid, setCategoryID] = useState()
     const [lastcat, setLastCat] = useState([ ] )
     const [description, setDescription] = useState(" not done")
@@ -161,7 +162,8 @@ const CAddEmergencyIncident =  (props) =>
        func = {pullSelectedCategory}
        />
 
-       <CFormInput name="-Date" id="date" placeholder="6/11/2023" func={pullDate}/>       
+       <CDatePicker name="-Date" id="date"  func={pullDate}/>       
+
        <CFormInput name="-Description" id="desc" placeholder="-Desc-" func={pullDescription}/>
 
 

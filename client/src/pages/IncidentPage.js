@@ -5,6 +5,7 @@ import {useState, useEffect} from 'react'
 import * as CONSTANTS from '../pages/Constants.js'
 
 import './Page.css'
+import {epoch,epochtodate,random} from '../library/library.js'
 
 const IncidentPage = () => {
 
@@ -49,7 +50,7 @@ const IncidentPage = () => {
                 <td>{d.ownerid} </td>
                 <td>{d.categoryid} </td>
                 <td>{d.incidentid} </td>
-                <td>{d.idate} </td>                                
+                <td>{epochtodate(d.idate)}</td>                                
                 <td>{d.description} </td>                                
                 </tr>  
                 ) 

@@ -224,10 +224,10 @@ alter table `incident` AUTO_INCREMENT=1;
 insert into `incident`
 (ownerid,categoryid,incidentid,idate,description)
 VALUES
-(1001,1,"C1-0","6/1/2003","boiler room accident"),
-(2002,2,"C2-0","8/10/2006","throw burrito" ),
-(3003,3,"C3-0","5/1/2022","scooter  accident"),
-(3004,4,"C4-0","7/4/2023","fireworks accident")
+(1001,1,"C1-0","1687676400000","boiler room accident"),
+(2002,2,"C2-0","1687676400000","throw burrito" ),
+(3003,3,"C3-0","1687676400000","scooter  accident"),
+(3004,4,"C4-0","1687676400000","fireworks accident")
 ;
 
 
