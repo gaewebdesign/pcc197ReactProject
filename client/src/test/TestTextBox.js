@@ -126,9 +126,12 @@ const TestTestBox = () => {
     
     } )
       .then(
-         () => {  alert("check database (select * from user)")     }
-      ).catch(
-         () => {  alert("Error: on insert") }
+         (response) => {  
+          alert("GOOD: " + user + " (" + name + ")")
+          }
+
+       ).catch(
+         (err) => {  alert("Error from server: " + err ) }
    
       )
    

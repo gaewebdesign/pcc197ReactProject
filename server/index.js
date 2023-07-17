@@ -174,7 +174,7 @@ app.post("/api/insertuser", (req,res) => {
           console.log("SUCCESS: sql inserted: ") 
           //console.log( result )
           res.status(200)
-          res.send(result)
+          res.send(result.data + "on insert" )
          }
      })
 
