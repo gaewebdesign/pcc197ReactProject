@@ -644,14 +644,14 @@ app.get('/test/user2', (req,res) => {
 // get the resource database
 app.get("/api/dbresource" , (req,res) => {
 
-  const sql = "select * from resource order by _id desc"
+  const sql = "select * from resource order by resourceid desc"
   db.query(sql, (err,result) => {
      if(err){
          res.status=400
          res.send("ERR")
      }else{
            res.status=200
-          res.send( result )  
+           res.send( result )  
      }
 
    })
