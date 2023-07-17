@@ -1,5 +1,7 @@
 import {React,useState, useEffect} from 'react'
 
+import './Page.css'
+
 import Axios from 'axios'
 import * as CONSTANTS from '../pages/Constants.js'
 
@@ -115,6 +117,27 @@ const LoginPageJWT = (props )=>  {
 
     return(
         <div>
+          <div class="container-sm">
+          <div class="row justify-content-center align-items-cente">
+          <div class="col-sm-3"> </div>
+          <div class="col-sm-6 LoginHeader">
+             <div >
+             The CIMT is an online web application that manages available resources and
+             their assignments to various emergency incidents that may have already occurred,
+             are happening or may happen in the future in and around the Pasadena City College
+             campus.  Emergency incidents may include , but not limited to , hazardous
+             waste spills, acts of terrorism, nuclear incident, campus shooting , car crashes
+             with fatalities, flooding, tire ,etc.
+             </div>
+             <p/>
+           </div>
+           <div class="col-sm-3"> </div>          
+          
+          </div>
+           </div>
+
+
+
           
           <div class="form-group">
             <div class="container-sm">

@@ -92,7 +92,7 @@ const CPrimarySecondary = (props) => {
                 menu_sel.map(
                     (option) => {
                            return (
-                              <option selected={option.sel} value={option.label}>{option.value}</option>
+                              <option selected={option.sel} value={option.label}>#{option.label}&nbsp;{option.value}</option>
                        )
                       }
                 )
@@ -115,7 +115,7 @@ const CPrimarySecondary = (props) => {
          menu2.map(
                (option) => {
                     return (
-                     <option selected value={option.label}>{option.value}</option>
+                     <option selected value={option.label}>#{option.label}&nbsp;{option.value}</option>
                 )
                }
          )
