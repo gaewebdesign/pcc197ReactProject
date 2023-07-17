@@ -33,7 +33,7 @@ function epoch(){
 }
 function start(){
 
-     let min = new Date('1-1-2010').getTime()
+     let min = new Date('1-1-2000').getTime()
      let max = Date.now()
 
      console.log("estart: " + min)
@@ -135,7 +135,7 @@ function Item( theArray){
 
 function resourcepage(epoch,ownerid,xname,primary,secondary,description,capabilities,distance,cost,unit){
       function epoch(){
-            let min = new Date('1-1-2010').getTime()
+            let min = new Date('1-10-2001').getTime()
             let max = Date.now()
             let e =  Math.random() * (max - min) + min
             return  Math.floor(e)
