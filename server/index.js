@@ -134,19 +134,32 @@ app.post("/api/insertuser", (req,res) => {
     const name = req.body.name
     const email = req.body.email
     const password = req.body.password
+    
+    const phone = req.body.phone
 
+    const address = req.body.address    
+    const city = req.body.city
+    const state = req.body.state
+    const zip = req.body.zip
 
     console.log("POST: " + name + " " + " " + email + " " + password)
+    
     // CREATE THE mysql command
-    // TOOO fix...
-    let ownerid2= 999
-    let sql = "insert into user(ownerid,roleid,user,name,email,password) values("
+    let sql = "insert into user(ownerid,roleid,user,name,password,email,phone,address,city,state,zip) values("
     sql += quotes( ownerid) + ","
     sql += quotes( roleid) + ","
     sql += quotes( user) + ","
     sql += quotes( name) + ","
+    sql += quotes( password )+ ','
     sql += quotes( email )+ ','
-    sql += quotes( password )+ ')'
+    
+    sql += quotes( phone )+ ','
+    
+    sql += quotes( address )+ ','
+    sql += quotes( city )+ ','
+    sql += quotes( state )+ ','
+    sql += quotes( zip )+ ')'
+    
     console.log( sql )
     
     // Execute the mysql command 
@@ -159,12 +172,13 @@ app.post("/api/insertuser", (req,res) => {
 
         }else{
           console.log("SUCCESS: sql inserted: ") 
-          console.log( result )
-
+          //console.log( result )
+          res.status(200)
+          res.send(result)
          }
      })
 
-     res.send("got " + name + " " + email + password)
+     
      
     
  })
@@ -764,19 +778,56 @@ app.post("api/insert" , (req,res)=>{
      const lname = req.body.lname
      const email = req.body.email
      const password = req.body.password
+     const phone = req.body.phone
+     const address = req.body.address
+     const city = req.body.city
+     const state = req.body.state
+     const zip = req.body.zip
+     
      console.log("/api/insert works")
 //     res.send("/api/insert works:" + fname )
 //     console.log("api/insert:" + fname + " " + lname + " " + email + " " + password )
-      const sqlInsert= "insert into member(fname,lname,email,password) values('?','?','?','?')"
+      const sqlInsert= "insert into member(fname,lname,email,password,phone,address,city,state) values('?','?','?','?','?','?','?','?','?')"
 
-      db.query( sqlInsert, [fname,lname,email,password] , (err,result)=>{
+      console.log( sqlInsert)
+      db.query( sqlInsert, [fname,lname,email,password,phone,address,city,state,zip] , (err,result)=>{
 
-             console.log( err)
+            if(err){
+                res.status(500)// .json("err")
+              
+             }else{
+                console.log( result)
+                res.status(200).json(result)
+        
+             }
+
+
 
      })
 
 })
+/*
 
+     if(err){
+      res.status(500).json("err")
+      
+     }else{
+         console.log("LEN:"+ result.length)
+         if( result.length >0){
+          console.log("LOGGED IN")
+          console.log( result)
+          console.log("LOGGED IN")
+          res.status(200).json(result)
+        }else{
+          console.log("NOT LOGGED IN")
+          res.status(400).json(result)
+
+        }
+
+     }
+
+
+*/
 
 
 // Create (CRUD)

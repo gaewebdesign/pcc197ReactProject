@@ -8,29 +8,15 @@
    "devStart" : "nodemon index.js"
    create index.js (start with depot index.js)
    npm run devStart
-
 --------
-   create database 'cert' ( )
-   add a table for testing
-
 
 */
 
 import Axios from 'axios'
 import {useState, useEffect} from 'react'
 
-
 import * as CONSTANTS from '../pages/Constants.js'
-
 import '../pages/Page.css'
-
-
-
-const url=CONSTANTS.url_insertuser // "http://localhost:3001/api/insertuser"
-
-
-
-// HARDED-CODED ... but can use Axios to GET from server
 
 const ClearButton = (evt) =>{
 
@@ -125,11 +111,24 @@ const TestTestBox = () => {
    const ownerid =  Math.floor(Math.random()*1000+9000) 
    const InsertButton = (evt) => {
 
-      Axios.post(url,{ownerid: ownerid,roleid:roleid,user:user,name: name, email: email , password: pass } )
+      Axios.post(CONSTANTS.url_insertuser,{
+        ownerid: ownerid,
+        roleid:roleid,
+        user:user,
+        name: name, 
+        email: email ,
+        password: pass,
+        phone: phone,
+        address: address,
+        city: city,
+        state: state,
+        zip:zip    
+    
+    } )
       .then(
          () => {  alert("check database (select * from user)")     }
       ).catch(
-         () => {  alert("Error: " + url)     }
+         () => {  alert("Error: on insert") }
    
       )
    
