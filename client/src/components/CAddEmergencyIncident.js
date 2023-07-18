@@ -40,6 +40,7 @@ const CAddEmergencyIncident =  (props) =>
 
     const [name, setResourceName] = useState('default')
     const [date, setDate] = useState( )
+    const [category, setCategory] = useState()
     const [categoryid, setCategoryID] = useState()
     const [lastcat, setLastCat] = useState([ ] )
     const [description, setDescription] = useState(" not done")
@@ -61,15 +62,16 @@ const CAddEmergencyIncident =  (props) =>
     useEffect( ()=>{ fetcher() } ,[ ])
     function fetcher(){
        let url = "http://localhost:3001/api/lastcat"
-     //  url = CONSTANTS.url_categoryid
+       url = CONSTANTS.url_categoryid
+       url = "http://localhost:3001/api/categoryid"
        Axios.get(url)
          .then(
               (response)=>{
-                   setLastCat( response.data )
-                   console.log("* lastcat *************** ")
-                   console.log(lastcat)
+                   setCategory( response.data )
+                   console.log("## pulling entire category table  *** ")
+                   console.log(category)
                    console.log( response.data)
-                   console.log("* lastcat *************** ")
+                   console.log("** pulling entire categoryid table *** ")
                    
                 }
          ).catch(
@@ -96,10 +98,14 @@ const CAddEmergencyIncident =  (props) =>
         // the server side has to match (req.body.owner)
         let incidentid ="C"
         let last = 0
-        lastcat?.map(
+        category?.map(
             (option) => {
-                if(option.label== categoryid) last=option.last
-//              console.log(option.label + " -> " + option.value)
+                if(option.label== categoryid) {
+                    last=option.last
+                    console.log(" found the label"+ option.label)
+                }
+
+                console.log(option.label + " -> " + categoryid)
             }
         )
         incidentid = "C"+categoryid + "-" + last
