@@ -61,9 +61,8 @@ const CAddEmergencyIncident =  (props) =>
     // this is to get the last value
     useEffect( ()=>{ fetcher() } ,[ ])
     function fetcher(){
-       let url = "http://localhost:3001/api/lastcat"
-       url = CONSTANTS.url_categoryid
-       url = "http://localhost:3001/api/categoryid"
+       
+       let url = CONSTANTS.url_categoryid
        Axios.get(url)
          .then(
               (response)=>{

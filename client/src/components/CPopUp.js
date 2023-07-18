@@ -28,6 +28,7 @@ const CPopUp = (props) => {
                (response)=>{
                     setMenu( response.data )
                     setSelected( response.data.length )
+                    setSelected( response.data[response.data.length-1].label)
                }
           ).catch(
  
@@ -56,7 +57,7 @@ const CPopUp = (props) => {
                 menu.map(
                       (option) => {
                            return (
-                            <option selected value={option.label}>{option.value}</option>
+                            <option selected value={option.label}>#{option.label}&nbsp;{option.value}</option>
                        )
                       }
                 )
