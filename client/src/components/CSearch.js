@@ -263,7 +263,7 @@ const CSearch =  (props) =>
       <CFormInput name="-Incident" func={pullIncidentID}/>
 */}
       <CDatePicker name = "-After date " func={pullEpochDate}/>
-      <CFormInput name="-Distance" func={pullDistance}/>
+      <CFormInput name="-Distance from PCC" func={pullDistance}/>
 
        <p/>
        <hr/>

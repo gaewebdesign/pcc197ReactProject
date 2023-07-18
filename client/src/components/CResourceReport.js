@@ -74,10 +74,18 @@ const CResourceReport = (props) =>{
 
 
       const ResourceValue=(idx)=>{
-            let resourceValue = "ERR"
+             let finder
+             let rValue = "ERR"
              try{
 
-               resourceValue = resourceid[idx-1].value                
+              console.log( "*** resourceid *** ")
+              console.log( resourceid)
+              console.log( "*** resourceid *** ")
+
+               finder= resourceid.find( ({label}) => label == idx )
+              if(finder){
+                   console.log("*** found " + finder.value + "found ****")
+              }
 
              }catch{
                console.log("index err")
@@ -85,7 +93,7 @@ const CResourceReport = (props) =>{
 
            return(
                <span>
-                   {resourceValue }
+                   {finder.value }
                </span>
            )
 
@@ -148,7 +156,7 @@ const CResourceReport = (props) =>{
                <tr>
                  <td>{d.ownerid} </td>
                  <td>{d.count } </td>
-                 <td>{ResourceValue(d.prime)} </td>
+                 <td>(#{d.prime}) &nbsp; {ResourceValue(d.prime)} </td>
                </tr>  
 
               )

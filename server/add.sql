@@ -36,10 +36,9 @@ VALUES
 (NULL,23,'tornado - shelter in place',1),
 (NULL,423,'flood - shelter in place',1),
 (NULL,426,'tsunami - goto high ground',1),
-(NULL,911,'terrorist attact - lock down airports',1),
+(NULL,911,'UFO - scram jets',1),
 (NULL,1211,'Martian Invasion - lock down',1),
-(NULL,13911,'Borg Invasion -  Panetery defense alerted',1),
-
+(NULL,13911,'Borg Invasion -  Planetery defense alert',1)
 ;
 
 
