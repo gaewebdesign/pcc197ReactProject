@@ -37,7 +37,7 @@ const CFormInput = (props) => {
                  onChange = {handleChange}
              >
                </input>
-                &nbsp;{value}
+
         </div>
 
         </div>

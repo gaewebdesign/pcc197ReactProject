@@ -121,8 +121,8 @@ const LoginPageJWT = (props )=>  {
         <div>
           <div class="container-sm">
           <div class="row justify-content-center align-items-cente">
-          <div class="col-sm-3"> </div>
-          <div class="col-sm-6 LoginHeader">
+          <div class="col-sm-2"> </div>
+          <div class="col-sm-8 LoginHeader">
              <div >
              The CIMT is an online web application that manages available resources and
              their assignments to various emergency incidents that may have already occurred,
@@ -133,7 +133,7 @@ const LoginPageJWT = (props )=>  {
              </div>
              <p/>
            </div>
-           <div class="col-sm-3"> </div>          
+           <div class="col-sm-2"> </div>          
           
           </div>
            </div>

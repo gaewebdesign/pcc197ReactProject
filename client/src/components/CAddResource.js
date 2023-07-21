@@ -187,15 +187,7 @@ const CAddResource =  (props) =>
          func = {pullSelectedPrimaryMenu }
          func2 = {pullSelectedSecondaryMenu}
          />
-{/*
-         <CPopUp name="-Primary Function" url={url_resourceid}
-       func = {pullSelectedPrimaryMenu }
-       />
-      
-       <CPopUp name="-Secondary Function" url={url_resourceid} 
-       func = {pullSelectedSecondaryMenu}
-       />
- */}
+
 
  <CFormInput name="-Description" id="desc" placeholder="-Desc-" func={pullDescription}/>
        <CFormInput name="-Capabilities" id="cap" placeholder="-Cap-" func={pullCapabilities}/>

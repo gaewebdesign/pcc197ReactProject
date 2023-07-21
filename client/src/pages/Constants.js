@@ -1,7 +1,7 @@
 
 
 
-export const DEBUG = true
+export const DEBUG = false
 
 // HISTORY of users logins
 // POST current user: ownerid , epoch
