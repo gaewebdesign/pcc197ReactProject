@@ -123,11 +123,13 @@ alter table `resourceid` AUTO_INCREMENT=1;
 
 INSERT INTO `resourceid` 
 VALUES (NULL,1,'-Transportation'),
-(NULL,2,'-Communications'),
-(NULL,3,'-Engineering'),
-(NULL,4,'-Search and Rescue'),
-(NULL,5,'-Education'),
-(NULL,6,'-Energy');
+(NULL,2,'Communications'),
+(NULL,3,'Engineering'),
+(NULL,4,'Search and Rescue'),
+(NULL,5,'Education'),
+(NULL,6,'Energy');
+(NULL,7,'Firefighting');
+(NULL,8,'Human Services');
 
 
 CREATE TABLE `categoryid` (
@@ -159,8 +161,8 @@ CREATE TABLE `resource` (
   `secondary` INT DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
   `cap` varchar(50) DEFAULT NULL,
-  `dist` DECIMAL(20,5) DEFAULT NULL,
-  `cost` DECIMAL(20,5) NOT NULL,
+  `dist` DECIMAL(20,1) DEFAULT NULL,
+  `cost` DECIMAL(20,2) NOT NULL,
   `unit` INT DEFAULT NULL,
   
   PRIMARY KEY (`_id`)
