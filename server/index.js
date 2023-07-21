@@ -303,7 +303,7 @@ app.post('/api/addresource' , (req,res )=>{
       select * from resource where description like  "%des%";
 
 */
-      const keyword = req.body.keyword
+      const keyword = req.body.keyword.toLowerCase()
       const distance = req.body.distance
       const primaryf = req.body.primaryf
       const epoch = req.body.epoch
@@ -330,6 +330,7 @@ app.post('/api/addresource' , (req,res )=>{
      if(distance) sql += " and dist <= " + distance 
      if(primaryf>0) sql += " and prime= " + primaryf 
 
+     
     // if(epoch>946709935) sql += " and resourceid> " + epoch 
      
      sql += " order by dist asc "
