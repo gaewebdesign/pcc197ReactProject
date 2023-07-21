@@ -128,7 +128,7 @@ VALUES (NULL,1,'Transportation'),
 (NULL,4,'Search and Rescue'),
 (NULL,5,'Education'),
 (NULL,6,'Energy');
-(NULL,7,'Firefighting');
+(NULL,7,'Firefighting'),
 (NULL,8,'Human Services');
 
 
