@@ -185,7 +185,7 @@ const CAddResource =  (props) =>
        </div>
        
        
-       <CFormInput name="-Resource Name" id="resc" placeholder="-Resource -" func={pullName}/>
+       <CFormInput name="-Resource Name" id="resc" placeholder="" func={pullName}/>
        {/* feed in url  dont use CPopUp (original version) 
            make the Axios call from witin the component
       */}
@@ -197,9 +197,9 @@ const CAddResource =  (props) =>
          />
 
 
- <CFormInput name="-Description" id="desc" placeholder="-Desc-" func={pullDescription}/>
-       <CFormInput name="-Capabilities" id="cap" placeholder="-Cap-" func={pullCapabilities}/>
-       <CFormInput name="-Distance" id="dist" placeholder="2" func={pullDistance}/>
+ <CFormInput name="-Description" id="desc" placeholder="" func={pullDescription}/>
+       <CFormInput name="-Capabilities" id="cap" placeholder="" func={pullCapabilities}/>
+       <CFormInput name="-Distance" id="dist" placeholder="" func={pullDistance}/>
 
 
        <CUnitCost name="-UnitCost" url={url_cost}  returnCostText={pullCostText}  returnMenuOption = {pullMenuItem }  />
