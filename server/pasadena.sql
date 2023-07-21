@@ -122,7 +122,7 @@ CREATE TABLE `resourceid` (
 alter table `resourceid` AUTO_INCREMENT=1;
 
 INSERT INTO `resourceid` 
-VALUES (NULL,1,'-Transportation'),
+VALUES (NULL,1,'Transportation'),
 (NULL,2,'Communications'),
 (NULL,3,'Engineering'),
 (NULL,4,'Search and Rescue'),
