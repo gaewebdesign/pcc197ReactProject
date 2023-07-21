@@ -41,7 +41,8 @@ const CAddResource =  (props) =>
     // the owner can be identified by ownerid or name
     const owner = props.logger.name
 
-    const [ resourceid] = useState(myID)
+    const [ resourceid , setResourceID] = useState()
+    
     const [resource, setResource] = useState()
     //const [ownerid , setOwnerID] = useState(8888)
     const [name, setResourceName] = useState('default')
@@ -130,7 +131,8 @@ const CAddResource =  (props) =>
         
         } )
         .then(
-           (response) => {  alert("Data entered: " + response.status)     }
+           (response) => {  alert("Data entered: " + response.status)   
+             setResourceID("R-"+ actual)  }
         ).catch(
            (error) => {  alert("Data error, check data field: " + error)   }
      
@@ -162,7 +164,7 @@ const CAddResource =  (props) =>
 
         <div class="row">
          <div class="col-sm-3 ">
-          <b>ID: {resourceid}<br/> (is of this form) </b>
+          <b>ID: {resourceid}<br/> </b>
           </div>
         <div class="col-sm-8"></div>
       </div>
