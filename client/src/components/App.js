@@ -74,15 +74,12 @@ const CAddResource =  (props) =>
 //    const pullCost = (data)=>{  setCost(data) }
 
     // owner determined in Parent
-    //setOwner( props.logger.name)
-    //setOwner("888")
-
-    // End points
-    const url_resourceid= CONSTANTS.url_resourceid //"http://localhost:3001/api/resource" 
-
     
-    const url = CONSTANTS.url_addresource // "http://localhost:3001/api/addresource"   
-    const url_cost = CONSTANTS.url_costid // "http://localhost:3001/api/costid"
+    // End points
+    const url_resourceid= CONSTANTS.url_resourceid
+
+    const url = CONSTANTS.url_addresource 
+    const url_cost = CONSTANTS.url_costid 
 
     // ***********************************************************
     const ReloadButton = (evt)=> {

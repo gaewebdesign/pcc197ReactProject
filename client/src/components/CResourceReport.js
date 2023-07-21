@@ -144,9 +144,9 @@ const CResourceReport = (props) =>{
          <table class="DBTable Center">
            <thead>
             <tr>
-            <td>Owner</td>
-            <td>Count </td> 
-            <td>Resource</td>               
+            <td>Primary Function #</td>
+            <td>Primary Function </td> 
+            <td>Total Resources</td>               
 
             </tr>
            </thead>
@@ -154,10 +154,10 @@ const CResourceReport = (props) =>{
             
             (d) => (
                <tr>
-                 <td>{d.ownerid} </td>
+                 <td>{d.prime} </td>
+                 <td>{ResourceValue(d.prime)} </td>
                  <td>{d.count } </td>
-                 <td>(#{d.prime}) &nbsp; {ResourceValue(d.prime)} </td>
-               </tr>  
+                 </tr>  
 
               )
              
@@ -178,9 +178,10 @@ const CResourceReport = (props) =>{
         }
         <tr>.                 .</tr>
         <tr>
-        <td> {theOwnerID}     </td>
-        <td> {xtotal}     </td>
+        <td>      </td>
         <td>  Total    </td>
+        <td> {xtotal}     </td>
+
         </tr>
         
         </table>        
