@@ -152,7 +152,7 @@ const CSearch =  (props) =>
                 <td>{d.cap}</td>
 */}
 
-                <td>{d.cost} /                                
+                <td>${d.cost} /                                
                 {toUnits(d.unit)} </td>                                
                 <td>{d.dist}</td>
                 </tr>  
