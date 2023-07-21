@@ -332,10 +332,8 @@ app.post('/api/addresource' , (req,res )=>{
 
     // if(epoch>946709935) sql += " and resourceid> " + epoch 
      
-     sql += " order by resourceid desc "
-     
-
- //    sql += " limit 5"
+     sql += " order by dist asc "
+      //    sql += " limit 5"
      console.log("*************")
      console.log( keyword)
      console.log( distance )
