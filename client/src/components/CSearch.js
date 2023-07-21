@@ -129,9 +129,11 @@ const CSearch =  (props) =>
                 <td>[Date]</td>
                 <td>Resource Name</td>
                 <td>Owner</td>
+{/*
                 <td>Primary ID</td>
                 <td>Description</td>
                 <td>Capabilities</td>
+*/}
                 <td>Cost/Unit</td>
                 <td>Distance</td>
                 </tr>
@@ -144,9 +146,12 @@ const CSearch =  (props) =>
                 <td>{epochtodate(d.resourceid)} </td>
                 <td>{d.name} </td>
                 <td>{OwnerIdName(d.ownerid)} </td>
+{/*
                 <td>{d.prime}</td>
                 <td>{d.description}</td>
                 <td>{d.cap}</td>
+*/}
+
                 <td>{d.cost} /                                
                 {toUnits(d.unit)} </td>                                
                 <td>{d.dist}</td>
