@@ -120,8 +120,8 @@ const CSearch =  (props) =>
         return(
             <div>
             <center/>
-            <h2>Database</h2>
-             <b>Resource</b>
+            
+             <b>Search Results</b>
             <table class="DBTable Center">
                <thead>
                 <tr>

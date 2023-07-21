@@ -40,9 +40,14 @@ const CAddEmergencyIncident =  (props) =>
 
     const [name, setResourceName] = useState('default')
     const [date, setDate] = useState( )
+
+
     const [category, setCategory] = useState()
     const [categoryid, setCategoryID] = useState()
-    const [lastcat, setLastCat] = useState([ ] )
+    const [incidentid, setIncidentID] = useState()
+
+
+    //    const [lastcat, setLastCat] = useState([ ] )
     const [description, setDescription] = useState(" not done")
 
 
@@ -81,11 +86,10 @@ const CAddEmergencyIncident =  (props) =>
      } 
 
 
-    // ***********************************************************
+
+     // ***********************************************************
     const ReloadButton = (evt)=> {
-
            window.location.reload()
-
      }
 
      const CancelButton = (evt) => {
@@ -107,7 +111,6 @@ const CAddEmergencyIncident =  (props) =>
                 console.log(option.label + " -> " + categoryid)
             }
         )
-        incidentid = "C"+categoryid + "-" + last
 
         Axios.post(url_addincident,{
           ownerid: ownerid,
@@ -118,7 +121,11 @@ const CAddEmergencyIncident =  (props) =>
 
         } )
         .then(
-            (response) => {  alert("Data entered: " + response.status)     }
+            (response) => {  
+                alert("Data entered: " + response.status)  
+                setIncidentID( "C" + categoryid +"-" + last)
+
+        }
         ).catch(
             (error) => {  alert("Data error, check data field: " + error)   }
      
@@ -167,6 +174,17 @@ const CAddEmergencyIncident =  (props) =>
        func = {pullSelectedCategory}
        />
 
+       <div class="container-sm Function">
+          <div class="col-sm-3">
+          <b>ID: {incidentid}</b>
+
+          <div class="col-sm-9">
+          
+          </div>
+       </div>
+            
+       
+       </div>
        <CDatePicker name="-Date" id="date"  func={pullDate}/>       
 
        <CFormInput name="-Description" id="desc" placeholder="-Desc-" func={pullDescription}/>
