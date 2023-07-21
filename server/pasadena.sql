@@ -163,7 +163,7 @@ CREATE TABLE `resource` (
   `cap` varchar(50) DEFAULT NULL,
   `dist` DECIMAL(20,1) DEFAULT NULL,
   `cost` DECIMAL(20,2) NOT NULL,
-  `unit` INT DEFAULT NULL,
+  `unit` INT NOT NULL,
   
   PRIMARY KEY (`_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;

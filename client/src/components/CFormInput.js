@@ -4,7 +4,7 @@ import {useState,useEffect} from 'react'
 const CFormInput = (props) => {
 
     // Save the text entered into the text box
-    const [value,setValue]= useState( )
+    const [value,setValue]= useState("" )
 
 /*
     this is a function passed in through props

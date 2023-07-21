@@ -65,7 +65,12 @@ const CAddResource =  (props) =>
     const pullName = (data)=>{  setResourceName(data) }  
     const pullDescription = (data)=>{  setDescription(data) }
     const pullCapabilities = (data)=>{  setCapabilities(data) }
-    const pullDistance = (data)=>{  setDistance(data) }
+    const pullDistance = (data)=>{  
+      if(data=="") setDistance(0)
+      else{
+           setDistance(data) 
+      }
+    }
     
 
     const pullSelectedPrimaryMenu = (data) => { setPrime(data) }
@@ -116,8 +121,9 @@ const CAddResource =  (props) =>
 //        setOwnerID(props.logger.ownerid )
         const ownerid = props.logger.ownerid
 
-//
-        Axios.post(url,{
+       // **********************************************************
+
+       Axios.post(url,{
           resourceid: actual, // set here ... is not the same shownin UI
           ownerid: ownerid,
           name: name,
