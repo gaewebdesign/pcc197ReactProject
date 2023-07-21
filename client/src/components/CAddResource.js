@@ -53,12 +53,12 @@ const CAddResource =  (props) =>
     const [description, setDescription] = useState(" not done")
     const [capabilities, setCapabilities] = useState(" not done")
     const [distance, setDistance ] = useState(99999)
-    const [cost, setCost ] = useState(99.99)
-    const [unit, setUnit ] = useState(99999)
-    const [last, setLast ] = useState(99999)
+    const [cost, setCost ] = useState()
+    const [unit, setUnit ] = useState()
+    const [last, setLast ] = useState()
 
     const [costMenuItem , setCostMenuItem ] = useState(9999)
-    const [costText ,    setCostText ] = useState( "9999" )
+    const [costText ,    setCostText ] = useState( null )
 
 
 //  GET information from each Component

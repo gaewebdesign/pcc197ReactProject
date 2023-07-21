@@ -16,7 +16,7 @@ const CUnitCost = (props) => {
      const [  menu , setMenu] = useState(m)
 
      const [ menuOption, setMenuOption] = useState(9999)
-     const [ value, setValue]= useState("cost")
+     const [ value, setValue]= useState()
 
 /*     
      "http://localhost:3001/test/resource"     
