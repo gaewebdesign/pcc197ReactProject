@@ -17,19 +17,28 @@ import {useState,useRef} from 'react'
 //    localStorage.getItem("loggedin")
 //    localStorage.setItem("password", info.password )
 
+// Convert JSON Object into a single string 
+function flatten(jsonObj){
+    let r = ""
+    jsonObj?.map(
+        (d) => {
+          r += " " + d.name
+        }
+    )
+ 
+    return r
+
+}
 function InputBox(){
-    const [ inputFields, setInputFields ]  = useState( [
-        {name:'Janet' } ,
-        {name:'Rae' }        
-
-    ] )
-
+    const [ inputFields, setInputFields ]  = useState( [ {name:'' }, ])
+    const [capability, setCapability]  = useState('')
     const addFields = (evt) => {
        evt.preventDefault()
-       let newField = {name: 'Erin'}
-       setInputFields( [ ...inputFields , newField])
+       setInputFields( [ ...inputFields ,{name:''}] )
+       setCapability( flatten( inputFields ))
+       console.log(">> " + capability + ' <<' )
 
-    }
+      }
 
     const clearFields = (evt) => {
          evt.preventDefault()
@@ -84,14 +93,14 @@ function InputBox(){
          <div class= "col-sm-6">
          <button 
          type="button"
-         class="btn btn-secondary"
+         class="btn btn-secondary btn-sm"
              onClick={clearFields}
          >
          Clear
          </button>
          &nbsp;
          <button type="button"
-         class="btn btn-primary"
+         class="btn btn-primary  btn-sm"
              onClick={addFields}
          >
          Add
