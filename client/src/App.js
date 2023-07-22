@@ -44,6 +44,7 @@ import {TestDefaultSelect}  from './test/TestDefaultSelect.js'
 import {TestJWT}  from './test/TestJWT.js'
 import {TestAxiosHook}  from './test/TestAxiosHook.js'
 import {TestResourceReport}  from './test/TestResourceReport.js'
+import {TestExtraTexEntry}  from './test/TestExtraTextEntry.js'
 
 /*
 https://blog.logrocket.com/react-router-v6-guide/
@@ -100,10 +101,7 @@ function App() {
   const ImLoggedIn = (info) => {
    // Set who's logged in
 
-         let html = "logged in: \n"
-         html += "roleid: " + info.roleid + "user: " + info.user + " ownerid: " + info.ownerid + " " + info.name + "\n"
-         html += info.password + " " + info.email + " " + info.phone + "\n"
-         html += info.address + " " + info.city + " " + info.state + " " + info.zip 
+         let html = info.user + " logged in "
          alert(html )
 
          setLoggedIn (true )
@@ -174,16 +172,7 @@ function App() {
 
 }
 
-const CreateIncident = (props) => {
-  return(
-      <div>
-        <h2>CreateIncident</h2>
-      </div>
 
-  )
-
-
-}
 
 const ReadMePage = (props) => {
 
@@ -222,12 +211,11 @@ const ReadMePage = (props) => {
 
 }
 
-
-
 const Database = () => {
-     if(toggleView== true ){
+     if(CONSTANTS.DEBUG && toggleView== true ){
          return(
               <div>
+              <b>Database Table </b>
               <li><Link to="/dbresource"> Resources </Link></li>
               <li><Link to="/dbuser"> User </Link></li>
               <li><Link to="/dbrole"> Roles </Link></li>
@@ -254,10 +242,11 @@ const Database = () => {
 
 }
 const TestRoutines = () =>{
-     if( toggleView==true ){
+     if(CONSTANTS.DEBUG && toggleView==true ){
          return(
                   <div>
-                    <li><Link to="/readme"> Readme </Link></li>  
+                    <b>Test Routines</b>
+
                     <li><Link to="/test1"> Test Create User (e2e) </Link></li>
                     <li><Link to="/test2"> Test Options (e2e)  </Link></li>
                     <li><Link to="/test3"> Test Form Component (insert into onUser) </Link></li>
@@ -266,8 +255,10 @@ const TestRoutines = () =>{
                     <li><Link to="/test6"> Test Default Menu Select </Link></li>
                     <li><Link to="/test7"> Test JWT </Link></li>
                     <li><Link to="/test8"> Test Resource Report </Link></li>
-                    <li><Link to="/test9"> Test Axios Hook </Link></li>
-                  </div>                  
+                    <li><Link to="/test9"> Test Extra TextBox </Link></li>
+                    <li><Link to="/test10"> Test Axios Hook </Link></li>
+
+                    </div>                  
      
          )
 
@@ -290,7 +281,6 @@ const NavigationPage = (props)=> {
              
              <ul class="no-bullets">
 
-             <li><Link to="/readme">  Read Me</Link> </li>
              <li><Link to="/caddresource">  AddResource</Link> </li>
              <li><Link to="/caddemergency">  Add Emergency Incident</Link> </li>
              <li><Link to="/csearch">  Search</Link> </li>
@@ -307,20 +297,21 @@ const NavigationPage = (props)=> {
                 <div class="container-sm">
                   <div class = "row">
                   <div class="col-sm-5 "> 
-                   <b>Database Tables</b>
+
                        <Database/>
                    </div>
                    <div class="col-sm-2">
                       <button
                         class="btn btn-secondary btn-sm"
                         onClick={onToggle}
+                        hidden
                         >
                         Toggle
                       </button>
 
                    </div>
                    <div class="col-sm-5">
-                   <b>Test Routines</b>
+                   
                       <TestRoutines/>
                   </div>                  
 
@@ -460,7 +451,8 @@ const LoggedInStrip = (props) => {
               <Route path="/test6"  element={<TestDefaultSelect />} />              
               <Route path="/test7"  element={<TestJWT />} />
               <Route path="/test8"  element={<TestResourceReport />} />
-              <Route path="/test8"  element={<TestAxiosHook />} />
+              <Route path="/test9"  element={<TestExtraTexEntry />} />
+              <Route path="/test10"  element={<TestAxiosHook />} />
 
               </Routes>
               </BrowserRouter>
