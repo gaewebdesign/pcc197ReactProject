@@ -59,10 +59,10 @@ function InputBox(){
     }
     return(
         <div className="InputBox">
-        
-{/*         <form onSubmit={addFields}> */}
 
-         <h1> InputBoxes</h1>
+         <div class="container-sm">
+         <div class="row">
+         <div class= "col-sm-6">
          {
 
             inputFields?.map(
@@ -74,33 +74,35 @@ function InputBox(){
                       onChange={event => handleFormChange(index, event)}
                     />
                  </div>
-
            )
-
-                   
-
          })
 
         }
+         
+         </div>
 
-        <button type="button"
-        class="btn btn-secondary"
-            onClick={clearFields}
-        >
-        Clear
-        </button>
-        &nbsp;
-          <button type="button"
-          class="btn btn-primary"
-              onClick={addFields}
-          >
-          Add
-          </button>
-          &nbsp;
- 
-        
-  {/*       </form>  */}
-        
+         <div class= "col-sm-6">
+         <button 
+         type="button"
+         class="btn btn-secondary"
+             onClick={clearFields}
+         >
+         Clear
+         </button>
+         &nbsp;
+         <button type="button"
+         class="btn btn-primary"
+             onClick={addFields}
+         >
+         Add
+         </button>
+         
+         </div>
+
+
+         </div>
+
+         </div>
          
         </div>
 
