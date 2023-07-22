@@ -44,7 +44,7 @@ import {TestDefaultSelect}  from './test/TestDefaultSelect.js'
 import {TestJWT}  from './test/TestJWT.js'
 import {TestAxiosHook}  from './test/TestAxiosHook.js'
 import {TestResourceReport}  from './test/TestResourceReport.js'
-import {TestExtraTexEntry}  from './test/TestExtraTextEntry.js'
+import {TestCCapabilities}  from './test/TestCCapabilities.js'
 
 /*
 https://blog.logrocket.com/react-router-v6-guide/
@@ -255,7 +255,7 @@ const TestRoutines = () =>{
                     <li><Link to="/test6"> Test Default Menu Select </Link></li>
                     <li><Link to="/test7"> Test JWT </Link></li>
                     <li><Link to="/test8"> Test Resource Report </Link></li>
-                    <li><Link to="/test9"> Test Extra TextBox </Link></li>
+                    <li><Link to="/test9"> Test CCapabilities </Link></li>
                     <li><Link to="/test10"> Test Axios Hook </Link></li>
 
                     </div>                  
@@ -451,7 +451,7 @@ const LoggedInStrip = (props) => {
               <Route path="/test6"  element={<TestDefaultSelect />} />              
               <Route path="/test7"  element={<TestJWT />} />
               <Route path="/test8"  element={<TestResourceReport />} />
-              <Route path="/test9"  element={<TestExtraTexEntry />} />
+              <Route path="/test9"  element={<TestCCapabilities />} />
               <Route path="/test10"  element={<TestAxiosHook />} />
 
               </Routes>
